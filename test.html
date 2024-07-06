@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Customized bootstrap login forms with multiple variants. Easy to customize.">
+	<meta name="keywords" content="Bootstrap Modal, Login Form, Modal Login, Registration Form, Form, Bootstrap, Login, Registration">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="assets/logo.png"/>
+	<title>Bootstrap Modal Login</title>
+
+
+	<!-- font awesome v5.5.0 free version -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
+	<!-- bootstrap version v4.0.0 -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+	<!-- custom css -->
+
+  <style>
+    /*-------define root colors---------*/
+:root {
+    --color-facebook: #3b5998;
+    --color-google: #ea4335;
+    --color-twitter: #1da1f2;
+
+    --style-1-color: #009688;
+    --style-2-color: #009688;
+    --style-3-color: #009688;
+}
+
+/*-------------------------------------------------
+ * Modal Style 2 CSS start
+ *-----------------------------------------------*/
+
+.modal-style-2 .modal-login {
+    width: 350px;
+}
+
+.modal-style-2 .modal-login a{
+    text-decoration: none !important;
+}
+
+.modal-style-2 .modal-login .modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+.modal-style-2 .modal-login .modal-header {
+    border-bottom: none;
+    position: relative;
+    justify-content: center;
+}
+
+.modal-style-2 .modal-login .close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+.modal-style-2  .close:focus, .modal-style-2 .close:active {
+   outline: none !important;
+   box-shadow: none;
+}
+.modal-style-2 .modal-login h4 {
+    color: var(--style-2-color);
+    text-align: center;
+    font-size: 18px;
+    margin-top: 0;
+    border-bottom: 0;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.modal-style-2 .modal-login .modal-content {
+    color: #999;
+    margin-bottom: 15px;
+    background: #fff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+}
+
+.modal-style-2 .modal-login .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-style-2 .modal-login label {
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.modal-style-2 .modal-login .modal-body {
+    padding: 0;
+}
+
+.modal-style-2 .modal-login .form-control {
+    min-height: 38px;
+    padding-left: 5px;
+    box-shadow: none !important;
+    border-width: 0 0 1px 0;
+    border-radius: 0;
+    font-size: 13px
+}
+
+.modal-style-2 .modal-login .form-control:focus {
+    border-color: #ccc;
+}
+
+.modal-style-2 .modal-login .input-group-addon {
+    max-width: 42px;
+    text-align: center;
+    background: none;
+    border-width: 0 0 1px 0;
+    padding-left: 5px;
+    border-radius: 0;
+    margin-right: 10px;
+    padding-top: 15px;
+}
+
+.modal-style-2 .modal-login .btn {
+    font-size: 15px;
+    font-weight: bold;
+    background: var(--style-2-color);
+    border-radius: 25px;
+    border: none;
+    min-width: 140px;
+    padding: 10px;
+    outline: none !important;
+}
+
+.modal-style-2 .modal-login .btn:hover,
+.modal-style-2 .modal-login .btn:focus {
+    background: var(--style-2-color);
+}
+.modal-style-2  input:-internal-autofill-selected {
+    background-color: transparent !important;
+}
+.modal-style-2 .modal-login .hint-text {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 13px;
+}
+
+.modal-style-2 .modal-login .modal-footer {
+    color: #999;
+    border-color: #dee4e7;
+    text-align: center;
+    margin: 0 -25px -25px;
+    font-size: 13px;
+    justify-content: center;
+}
+
+.modal-style-2 .modal-login a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.modal-style-2 .modal-login a:hover {
+    text-decoration: none;
+}
+
+.modal-style-2 .modal-login a {
+    color: var(--style-2-color);
+    text-decoration: none;
+}
+
+.modal-style-2 .modal-login a:hover {
+    text-decoration: underline;
+}
+
+.modal-style-2 .modal-login .fa {
+    font-size: 16px;
+}
+
+
+.dark.modal-style-2 .modal-content{
+    background: #0b0b1f !important;
+    color: #fff!important;
+}
+.dark.modal-style-2 .close, .modal-style-2.dark .modal-login h4{
+    color:#fff!important;
+}
+.dark.modal-style-2 .modal-login .form-control{
+    background: transparent !important;
+    color: #fff;
+    border-color: #777;
+}
+.dark.modal-style-2 .modal-login .input-group-addon{
+    color:#9E9E9E;
+}
+.dark.modal-style-2 .modal-login .modal-footer{
+    border: none;
+}
+.dark.modal-style-2 .modal-login .btn{
+    background: #70807e;
+}
+.dark .text-danger{
+    color: #777!important;
+}
+
+@media only screen and (max-width: 360px) {
+    .modal-style-2 .modal-login {width: 100%; margin:5px;}
+    .modal-style-2 .modal-login form{width: 100%;}
+}
+/*------extra css----------*/
+
+.main-container{
+    width:1140px;
+    margin: 0 auto;
+}
+.text-12{
+    font-size: 12px;
+}
+
+.button-card {
+    margin: 0 auto;
+    box-shadow: 1px 2px 5px 2px #d1d1d1;
+    padding: 20px;
+    border-radius: 5px;
+}
+.button-card img {
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    max-height: 350px;
+    position: relative;
+}
+
+.btn-theme{
+    width: 100px;
+    height: 35px;
+    padding: 3px;
+    border-radius: 26px;
+}
+
+@media only screen and (max-width: 1140px) {
+    .main-container{ width: 100%; margin: 0 15px;}
+}
+
+@media only screen and (max-width: 480px) {
+    .button-card img {width: 100%; height: auto;}
+}
+  </style>
+</head>
+<body>
+	<div class="main-container">
+  
+		<div class="row text-center mt-3">
+			
+			<div class="col-sm-4 ">
+				<div class="button-card mt-4">
+					<p class="text-muted"><strong class="text-danger text-uppercase">Style 2</strong> Click the button to preview</p>
+					<div class="action-buttons mb-3 mt-2">
+						<!-- action button for modal style 2 start -->
+						<a href="#loginModal2" data-toggle="modal" class="btn btn-theme btn-primary text-white"> Login</a>
+						<a href="#registerModal2" data-toggle="modal" class="btn btn-theme btn-success text-white">Register</a>
+						<!-- action button for modal style 2 end -->
+					</div>
+					<img src="https://rakibul.dev/demo/style-2-demo-dark.jpg">
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<!-- login modal 2 -->
+	<div id="loginModal2" class="modal-style-2 dark modal ">
+		<div class="modal-dialog modal-login">
+			<div class="modal-content">
+				<div class="modal-header p-0">				
+					<h4 class="modal-title">Login</h4>
+          <i class="fa fa-window-close close" data-dismiss="modal" aria-hidden="true" aria-hidden="true"></i>
+				</div>
+				<div class="modal-body">
+					<!-- dont forget to add action and action method  -->
+					<form action="" method="" class="mt-3">
+						
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+								<input type="email" class="form-control" name="email" placeholder="Enter your Email" required="required">
+							</div>
+						
+						<br>
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+								<input type="password" class="form-control" name="password" placeholder="Enter password" required="required" autocomplete="on">
+							</div>
+						<br>
+						<div class="row pl-1 pr-1">
+                            <div class="col text-left">
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="item_checkbox" name="item_checkbox" value="option1">
+                                    <span class="custom-control-label">&nbsp;Remember Me</span>
+                                </label>
+                            </div>
+                            <div class="col text-right hint-text pt-0">
+                                <a href="" class="text-danger">Forgot Password?</a>
+                            </div>
+                        </div>
+						<div class=" text-center mt-2 mb-0">
+							<button type="submit" class="btn btn-primary btn-sm">Login</button>
+							
+						</div>
+						
+					</form>
+				</div>
+				<div class="modal-footer">Don't have an account? <a href="#registerModal2" data-dismiss="modal" data-toggle="modal"> Register</a></div>
+			</div>
+		</div>
+	</div>  
+	<!-- register modal 2 -->
+	<div id="registerModal2" class="modal-style-2 dark modal ">
+		<div class="modal-dialog modal-login">
+			<div class="modal-content">
+				<div class="modal-header p-0">				
+					<h4 class="modal-title">Register</h4>
+          <i class="fa fa-window-close close" data-dismiss="modal" aria-hidden="true" aria-hidden="true"></i>
+				</div>
+				<div class="modal-body">
+					<form action="" method="post" class="mt-3">
+						
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								<input type="text" class="form-control" name="name" placeholder="Enter your name" required="required">
+							</div>
+						
+						<br>
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+								<input type="text" class="form-control" name="email" placeholder="Enter email address" required="required">
+							</div>
+					
+						<br>
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+								<input type="password" class="form-control" name="password" placeholder="Enter password" required="required" autocomplete="on">
+							</div>
+						<br>
+						
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-eye-slash"></i></span>
+								<input type="password" class="form-control" name="password_confirmation" placeholder="Retype password" required="required" autocomplete="on">
+							</div>
+						<br>
+
+						<div class="text-center">
+							<button id="signup-button" type="submit" class="btn btn-primary btn-sm">Register</button>
+							
+						</div>
+					</form>
+
+				</div>
+				<!-- social icons -->
+				
+				<div class="modal-footer">Already have an account? <a href="#loginModal2" data-dismiss="modal" data-toggle="modal"> Login</a></div>
+			</div>
+		</div>
+	</div> 
+
+	<!-- include scripts here -->
+
+	<!-- jQuery v3.4.1 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+	<!-- bootstrap js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.cyber-armor {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.cyber-armor .black-logo {
+  display: block;
+  margin-bottom: 10px; /* Adjust the margin as needed */
+}
+
+.cyber-armor .text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 5px #ffbb00;
+  display: block;
+  margin-bottom: 10px; /* Adjust the margin as needed */
+}
+
+@keyframes lightning {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
