@@ -4,23 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cyber Armor</title>
-    <!-- CSS Files -->
-   <!-- ✅ FIRST - load jquery ✅ -->
    <script
    src="https://code.jquery.com/jquery-3.6.0.min.js"
    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
    crossorigin="anonymous">
  </script>
-
- <!-- ✅ SECOND - load jquery validate ✅ -->
  <script
    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"
    integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg=="
    crossorigin="anonymous"
    referrerpolicy="no-referrer">
  </script>
-
- <!-- ✅ THIRD - load additional methods ✅ -->
  <script
    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"
    integrity="sha512-XZEy8UQ9rngkxQVugAdOuBRDmJ5N4vCuNXCh8KlniZgDKTvf7zl75QBtaVG1lEhMFe2a2DuA22nZYY+qsI2/xA=="
@@ -41,12 +35,9 @@
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link href="assets/images/white-logo.png" type="image/x-icon" rel="icon" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
-	<!-- bootstrap js -->
-	<!-- bootstrap js -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
   <script>
 		$(document).ready(function () {
-			// Login form validation
 			$("#loginForm").validate({
 				rules: {
 					email: {
@@ -65,13 +56,11 @@
 						email: "Invalid email address. Please enter a valid email."
 					},
 					password: {
-						required: "Please enter your password",
+						required: "Password Required. Please enter your Password to proceed with your request",
 						minlength: "Your password must be at least 8 characters long"
 					}
 				}
 			});
-
-			// Registration form validation
 			$("#registerForm").validate({
 				rules: {
 					name: {
@@ -95,7 +84,7 @@
 				},
 				messages: {
 					name: {
-						required: "Please enter your name",
+						required: "name Required. Please enter your name to proceed with your request",
 						minlength: "Your name must be at least 2 characters long"
 					},
 					email: {
@@ -103,21 +92,19 @@
 						email: "Email Required. Please enter your email address to proceed with your request"
 					},
 					password: {
-						required: "Please enter your password",
+						required: "Password Required. Please enter your Password to proceed with your request",
 						minlength: "Your password must be at least 8 characters long"
 					},
 					password_confirmation: {
-						required: "Please confirm your password",
+						required: "Confirm Password Required. Please enter your Confirm Password to proceed with your request",
 						minlength: "Your password confirmation must be at least 8 characters long",
 						equalTo: "Passwords do not match"
 					}
 				}
 			});
-
-			// Custom method to check strong password
-			$.validator.addMethod("strongPassword", function(value, element) {
-				return this.optional(element) || /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value);
-			}, "Your password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
+      $.validator.addMethod("strongPassword", function(value, element) {
+            return this.optional(element) || /^(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$/.test(value);
+        }, "Your password must contain at least three lowercase letters, two uppercase letters, two digits, one special character (!@#$%^&*()-__+.), and be at least 8 characters long.");
 		});
 	</script>
     <style>
@@ -387,6 +374,30 @@ h1 {
   </head>
 
   <body>
+    <div id="forgetpwd" class="modal-style-2 dark modal mt-5">
+      <div class="modal-dialog modal-login">
+        <div class="modal-content">
+          <div class="modal-header p-0">				
+            <h4 class="modal-title">Forget Password</h4>
+            <i class="fa fa-window-close close" data-dismiss="modal" aria-hidden="true" aria-hidden="true"></i>
+          </div>
+          <div class="modal-body">
+            <form action="" method="" class="mt-3">
+              
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                  <input type="email" class="form-control" name="email" placeholder="Enter your Email" required="required">
+                </div>
+              <br>
+              <div class=" text-center mt-2 mb-0">
+                <button type="submit" style="background-color: cyan;" class="btn btn-primary btn-sm">Send Link</button>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Start Modal -->
     <div id="loginModal2" class="modal-style-2 dark modal mt-5">
       <div class="modal-dialog modal-login">
@@ -396,7 +407,6 @@ h1 {
             <i class="fa fa-window-close close" data-dismiss="modal" aria-hidden="true" aria-hidden="true"></i>
           </div>
           <div class="modal-body">
-            <!-- dont forget to add action and action method  -->
             <form action="" id="loginForm" method="" class="mt-3">
               
                 <div class="input-group">
@@ -418,7 +428,7 @@ h1 {
                                   </label>
                               </div>
                               <div class="col text-right hint-text pt-0">
-                                  <a href="" class="text-danger">Forgot Password?</a>
+                                <a href="#forgetpwd" data-dismiss="modal" data-toggle="modal"> Forgot Password?</a>
                               </div>
                           </div>
               <div class=" text-center mt-2 mb-0">
@@ -506,13 +516,6 @@ h1 {
         </div>
       </div>
     </div> 
-    <!-- End Modal -->
-
-    <!-- Start Top Header Area -->
-
-    <!-- End Top Header Area -->
-
-    <!-- Start Navbar Area -->
     <div class="navbar-area style-2">
       <div class="mobile-responsive-nav">
         <div class="container">
