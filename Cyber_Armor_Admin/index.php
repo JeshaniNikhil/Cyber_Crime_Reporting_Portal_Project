@@ -68,16 +68,7 @@
 <?php
 if(isset($_REQUEST['btnlogin'])){
 session_start();
-$dsn = 'mysql:host=localhost;dbname=cyber_crime_reporting_portal';
-$username_db = 'root';
-$password_db = '';
-try {
-    $pdo = new PDO($dsn, $username_db, $password_db);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die('Database connection failed: ' . $e->getMessage());
-}
-
+include('../db/config.php');
 function validateMAC($allowedMACs, $userMAC) {
     $userMAC = strtolower(preg_replace('/[^a-f0-9]/', '', $userMAC));
     foreach ($allowedMACs as $allowedMAC) {
