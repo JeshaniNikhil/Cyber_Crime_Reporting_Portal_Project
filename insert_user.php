@@ -6,12 +6,17 @@ error_reporting(E_ALL);
 include('./db/config.php');
 $name = $_POST['name'] ?? '';
 $email = $_POST['email'] ?? '';
-$password = $_POST['password'] ?? '';
-
+$temp_password = $_POST['password'] ?? '';
+$password = hash('sha256', $temp_password);
 $response = [];
 
 if (!empty($name) && !empty($email) && !empty($password)) {
-    $insert="INSERT INTO `users_details`(`email`, `password_hash`) VALUES ('[value-1]','[value-2]','[value-3]')"
+    $insert = "INSERT INTO `users_details`(`user_name`, `email`, `password_hash`) VALUES (:name, :email, :password)";
+    $result = $pdo->prepare($insert);
+    $result->bindParam(':name', $name);
+    $result->bindParam(':email', $email);
+    $result->bindParam(':password', $password);
+    $result->execute();
     $response['status'] = 'success';
     $response['message'] = 'User registered successfully';
 } else {
