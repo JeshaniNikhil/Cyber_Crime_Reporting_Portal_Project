@@ -27,7 +27,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="assets/images/white-logo.png" type="image/x-icon" rel="icon" />
     <style>
       .modal-bg {
@@ -197,7 +197,7 @@
                 >
                   Close
                 </button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" id="btnsubmi" class="btn btn-primary">Submit</button>
               </div>
             </form>
             <script>
@@ -222,14 +222,13 @@
                     encode: true,
                     success: function (response) {
                       Swal.fire({
-                        title: "Good job!",
-                        text: "You clicked the button!",
+                        title: "Request Send Successfully",
+                        text: "Web Testing Request Send Successfully",
                         icon: "success",
                       });
                     },
                     error: function (xhr, status, error) {
                       console.error(xhr.responseText);
-                      //alert("An error occurred: " + xhr.responseText);
                     },
                   });
                 });
@@ -329,11 +328,6 @@
                     <li class="nav-item">
                       <a href="service-details.html" class="nav-link"
                         >Email Fraud Report</a
-                      >
-                    </li>
-                    <li class="nav-item">
-                      <a href="service-details.html" class="nav-link"
-                        >International Call Fraud Report</a
                       >
                     </li>
                     <li class="nav-item">
