@@ -268,7 +268,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <a href="web-testing-service.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Web Testing</p>
                 </a>
