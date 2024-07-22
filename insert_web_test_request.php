@@ -10,26 +10,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $requirements = $_POST['requirements'];
     $adminemail="nikhiljeshani9@gmail.com";
     $testing_type = isset($_POST['testing_type']) ? implode(", ", $_POST['testing_type']) : "";
-    $sql="INSERT INTO `web_request`(`name`, `email`, `domain`, `requirements`, `testing_type`) VALUES (:name, :email, :domain, :requirements, :testing_type)";
+    $sql="INSERT INTO `web_request`(`name`, `email`, `domain`, `requirements`, `testing_type`,`status`) VALUES (:name, :email, :domain, :requirements, :testing_type,:status)";
     $qry=$pdo->prepare($sql);
+    $status="Request Submitted";
     $qry->bindParam(':name', $name);
     $qry->bindParam(':email', $email);
     $qry->bindParam(':domain', $domain);
     $qry->bindParam(':requirements', $requirements);
     $qry->bindParam(':testing_type', $testing_type);
-    $qry->bindParam(':testing_type', $testing_type);
+    $qry->bindParam(':status', $status);
     $qry->execute();
             $mail = new PHPMailer;
-
             $mail->isSMTP();
             $mail->Host='smtp.gmail.com';
             $mail->Port=587;
             $mail->SMTPAuth=true;
             $mail->SMTPSecure='tls';
-
             $mail->Username='nikhiljeshani2@gmail.com';
             $mail->Password='xpmppmehyvcackoo';
-
             $mail->setFrom('nikhiljeshani2@gmail.com', 'Web Testing Request');
             $mail->addAddress($adminemail);
 
@@ -49,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }else{
                 ?>
                 <script>
-                    alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
+                   
                     //window.location.replace('verification.php');
                 </script>
                 <?php

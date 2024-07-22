@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cyber Armor</title>
   <link href="../assets/images/white-logo.png" type="image/x-icon" rel="icon" />
-
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -13,9 +12,6 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
   <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
@@ -44,7 +40,6 @@
         <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
-
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
@@ -68,7 +63,6 @@
           </form>
         </div>
       </li>
-
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -357,44 +351,76 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="userModalLabel">Add New User</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
             </div>
             <form name="userDataFrm" id="userDataFrm">
-            <div class="modal-body">
-                <div class="frm-status"></div>
-                <div class="mb-3">
-                    <label for="userFirstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="userFirstName" placeholder="Enter firstname">
+                <div class="modal-body">
+                    <div class="frm-status"></div>
+                    <div class="mb-3">
+                        <label for="userFirstName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="userEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="requirements" class="form-label">Requirements Details</label>
+                        <input type="text" class="form-control" id="requirements" placeholder="Requirements">
+                    </div>
+                    <div class="mb-3">
+                        <label for="domain" class="form-label">Domain Name Of Website (If Website Is Hosted)</label>
+                        <input type="url" class="form-control" id="domain" placeholder="Domain Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="testing_type" class="form-label">Type of Testing Required</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="functionalTesting" value="Functional Testing">
+                            <label class="form-check-label" for="functionalTesting">Functional Testing</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="usabilityTesting" value="Usability Testing">
+                            <label class="form-check-label" for="usabilityTesting">Usability Testing</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="performanceTesting" value="Performance Testing">
+                            <label class="form-check-label" for="performanceTesting">Performance Testing</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="securityTesting" value="Security Testing">
+                            <label class="form-check-label" for="securityTesting">Security Testing</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="userLastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="userLastName" placeholder="Enter lastname">
+                <div class="modal-footer">
+                    <input type="hidden" id="userID" value="0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="submitUserData()">Submit</button>
                 </div>
-                <div class="mb-3">
-                    <label for="userEmail" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="userEmail" placeholder="Enter email">
-                </div>
-                <div class="form-radio">
-                    <label>Gender:</label>
-                    <input type="radio" name="userGender" id="userGender_1" value="Male" checked> Male 
-                    &nbsp;&nbsp; 
-                    <input type="radio" name="userGender" id="userGender_2" value="Female"> Female
-                </div>
-                <div class="mb-3">
-                    <label for="userCountry" class="form-label">Country</label>
-                    <input type="text" class="form-control" id="userCountry" placeholder="Enter country">
-                </div>
-                <div class="form-radio">
-                    <label>Status:</label>
-                    <input type="radio" name="userStatus" id="userStatus_1" value="1" checked> Active &nbsp;&nbsp;
-                    <input type="radio" name="userStatus" id="userStatus_2" value="0"> Inactive
-                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="updateuserstatus" tabindex="-1" aria-labelledby="updatestatusLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="updatestatus">Update Request Status</h1>
+                <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
             </div>
-            <div class="modal-footer">
-                <input type="hidden" id="userID" value="0">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="submitUserData()">Submit</button>
-            </div>
+            <form name="updatestatusform" id="updatestatusform">
+                <div class="modal-body">
+                    <div class="frm-status"></div>
+                    <div class="mb-3">
+                        <label for="domain" class="form-label">Status Names</label>
+                        <input type="url" class="form-control" id="domain" placeholder="Domain Name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="userID" value="0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="submitstatus()">Submit</button>
+                </div>
             </form>
         </div>
     </div>
@@ -406,8 +432,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
+            <div class="row">
             <h1>Web Testing Requests Detail</h1>
-            <a href="javascript:void(0);" class="btn btn-primary" onclick="addData()">Add New User</a>
+            <a href="javascript:void(0);" class="p-1" onclick="addData()"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+</svg></a>
+            </div>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -442,6 +472,8 @@
             <th>domain</th>
             <th>requirements</th>
             <th>testing_type</th>
+            <th>status</th>
+            <th>Update status</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -450,7 +482,6 @@
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
-
     </section>
     <!-- /.content -->
   </div>
@@ -471,12 +502,13 @@
 </div>
 <!-- ./wrapper -->
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
-
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
@@ -492,67 +524,63 @@
     ]
 });
 $(document).ready(function(){
-    // Draw the table
     table.draw();
 });
 function addData(){
     $('.frm-status').html('');
     $('#userModalLabel').html('Add New User');
-
-    $('#userGender_1').prop('checked', true);
-    $('#userGender_2').prop('checked', false);
-    $('#userStatus_1').prop('checked', true);
-    $('#userStatus_2').prop('checked', false);
-    $('#userFirstName').val('');
-    $('#userLastName').val('');
-    $('#userEmail').val('');
-    $('#userCountry').val('');
+    $('#name').val('');
+    $('#email').val('');
+    $('#domain').val('');
+    $('#requirements').val('');
     $('#userID').val(0);
     $('#userDataModal').modal('show');
 }
+function updatestatus(){
+  $('#updateuserstatus').modal('show');
+}
 function editData(user_data){
     $('.frm-status').html('');
-    $('#userModalLabel').html('Edit User #'+user_data.id);
+    $('#userModalLabel').html('Edit User #'+user_data.request_id);
+    $('#name').val(user_data.name);
+    $('#email').val(user_data.email);
+    $('#domain').val(user_data.domain);
+    $('#requirements').val(user_data.requirements);
+    $("input[type='checkbox']").prop('checked', false);
+    if (user_data.testing_type) {
+            // If testing_type is a string, convert it to an array
+            var testingTypesArray = Array.isArray(user_data.testing_type) ? user_data.testing_type : user_data.testing_type.split(',');
 
-    if(user_data.gender == 'Female'){
-        $('#userGender_1').prop('checked', false);
-        $('#userGender_2').prop('checked', true);
-    }else{
-        $('#userGender_2').prop('checked', false);
-        $('#userGender_1').prop('checked', true);
-    }
-
-    if(user_data.status == 1){ 
-        $('#userStatus_2').prop('checked', false);
-        $('#userStatus_1').prop('checked', true);
-    }else{
-        $('#userStatus_1').prop('checked', false);
-        $('#userStatus_2').prop('checked', true);
-    }
-
-    $('#userFirstName').val(user_data.first_name);
-    $('#userLastName').val(user_data.last_name);
-    $('#userEmail').val(user_data.email);
-    $('#userCountry').val(user_data.country);
-    $('#userID').val(user_data.id);
+            testingTypesArray.forEach(function (type) {
+                $("input[type='checkbox'][value='" + type.trim() + "']").prop('checked', true);
+            });
+        }
+    $('#userID').val(user_data.request_id);
     $('#userDataModal').modal('show');
 }
-function submitUserData(){
+function submitUserData() {
     $('.frm-status').html('');
     let input_data_arr = [
-        document.getElementById('userFirstName').value,
-        document.getElementById('userLastName').value,
-        document.getElementById('userEmail').value,
-        document.querySelector('input[name="userGender"]:checked').value,
-        document.getElementById('userCountry').value,
-        document.querySelector('input[name="userStatus"]:checked').value,
+        document.getElementById('name').value,
+        document.getElementById('email').value,
+        document.getElementById('domain').value,
+        document.getElementById('requirements').value,
         document.getElementById('userID').value,
     ];
+
+    // Gather the values of the selected checkboxes
+    let testingTypes = [];
+    $("input[type='checkbox']:checked").each(function () {
+        testingTypes.push($(this).val());
+    });
+    
+    // Add the testing types to the data array
+    input_data_arr.push(testingTypes);
 
     fetch("eventHandler.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ request_type:'addEditUser', user_data: input_data_arr}),
+        body: JSON.stringify({ request_type: 'addEditUser', user_data: input_data_arr }),
     })
     .then(response => response.json())
     .then(data => {
@@ -562,17 +590,17 @@ function submitUserData(){
                 icon: 'success',
             }).then((result) => {
                 // Redraw the table
-	        table.draw();
-
+                table.draw();
                 $('#userDataModal').modal('hide');
                 $("#userDataFrm")[0].reset();
             });
         } else {
-            $('.frm-status').html('<div class="alert alert-danger" role="alert">'+data.error+'</div>');
+            $('.frm-status').html('<div class="alert alert-danger" role="alert">' + data.error + '</div>');
         }
     })
     .catch(console.error);
 }
+
 function deleteData(user_id){
     Swal.fire({
         title: 'Are you sure to Delete?',
