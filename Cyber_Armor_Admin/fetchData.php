@@ -83,7 +83,7 @@ $columns = array(
         'db'        => 'request_id', 
         'dt'        => 7, 
         'formatter' => function( $d, $row ) { 
-            return '<a href="javascript:void(0);" class="btn btn-primary" onclick="alert(1)">
+            return '<a href="javascript:void(0);" class="btn btn-primary" onclick="updatestatus('.htmlspecialchars(json_encode($row), ENT_QUOTES, 'UTF-8').')">
     <i class="fas fa-sync"></i>
 </a>';
         } 

@@ -19,7 +19,7 @@ if($jsonObj->request_type == 'addEditUser'){
     $domain = !empty($user_data[2])?$user_data[2]:''; 
     $requirements = !empty($user_data[3])?$user_data[3]:''; 
     $id = !empty($user_data[4])?$user_data[4]:0; 
-    $testing_types = !empty($user_data[5])?$user_data[5]:[]; // Get the testing types array
+    $testing_types = !empty($user_data[5])?$user_data[5]:[]; 
     $err = ''; 
     if(empty($name)){ 
         $err .= 'Please enter your First Name.<br/>'; 
