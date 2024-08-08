@@ -282,7 +282,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
               <li class="nav-item">
                 <a href="../../index3.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p style="font-size:13px">Network Penetration Testing</p>
+                  <p style="font-size:13px">Network Penetration</p>
                 </a>
               </li>
               <li class="nav-item">

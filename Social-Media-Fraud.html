@@ -4,7 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cyber Armor</title>
+    <link rel="stylesheet" href="assets/css/financial-fraud.css">
     <!-- CSS Files -->
+    <style>
+      .form-control{
+        height:4rem;
+      }
+
+    </style>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
     <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
@@ -15,7 +22,20 @@
     <link rel="stylesheet" href="assets/css/magnific.popup.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
-
+    <script src="assets/js/financial-fraud.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="assets/images/white-logo.png" type="image/x-icon" rel="icon" />
     <style>
       .modal-bg {
@@ -63,105 +83,7 @@
       aria-labelledby="exampleModalLabel2"
       aria-hidden="true"
     >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content modal-bg">
-          <div class="modal-header">
-            <h5
-              class="modal-title"
-              id="exampleModalLabel2"
-              style="font-size: 1.5rem"
-            >
-              Network Penetration Testing Request Form
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <hr />
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="name" class="form-label"
-                  >Name Of Company Or Person:</label
-                >
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  class="form-control"
-                  placeholder="Enter Name Of Person Or Company"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Email address For Contact</label
-                >
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  placeholder="Enter email"
-                />
-              </div>
-							
-              <div class="mb-3">
-								<div class="form-group">
-                <label for="domain" class="form-label"
-                  >Scope of the Network</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="domain"
-                  placeholder="Describe the scope of your network"
-                />
-							</div>
-              </div>
-              <div class="mb-3">
-                <label for="requirements" class="form-label"
-                  >Requirements Details</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="requirements"
-                  placeholder="Requirements"
-                />
-              </div>
-							<div class="mb-3">
-								<label for="testing_type" class="form-label">Type of Testing Required</label><br>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="PCI DSS" value="PCI DSS">
-									<label class="form-check-label" for="PCI DSS">PCI DSS</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="HIPAA" value="HIPAA">
-									<label class="form-check-label" for="HIPAA">HIPAA</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="GDPR" value="GDPR">
-									<label class="form-check-label" for="GDPR">GDPR</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="Other" value="Other">
-									<label class="form-check-label" for="Other">Other</label>
-								</div>
-							</div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+      
     </div>
     <!-- End Modal -->
     <!-- Start Navbar Area -->
@@ -183,7 +105,6 @@
           </div>
         </div>
       </div>
-
       <div class="desktop-nav">
         <div class="container-fluid">
           <nav class="navbar navbar-expand-md navbar-light">
@@ -196,22 +117,19 @@
                 alt="logo"
               />
             </a>
-
             <div
               class="collapse navbar-collapse mean-menu"
               id="navbarSupportedContent"
             >
               <ul class="navbar-nav m-auto">
-                <li class="nav-item">
+                <li class="nav-item mt-2">
                   <a href="index.html" class="nav-link"> Home </a>
                 </li>
-
                 <li class="nav-item">
                   <a href="about.html" class="nav-link">About</a>
                 </li>
-
                 <li class="nav-item">
-                  <a href="#" class="nav-link dropdown-toggle active">
+                  <a href="#" class="nav-link dropdown-toggle">
                     Services
                   </a>
                   <ul class="dropdown-menu">
@@ -233,14 +151,14 @@
                       >
                     </li>
                     <li class="nav-item">
-                      <a href="service-details.html" class="nav-link"
+                      <a href="Digital-Forensics-Testing.html" class="nav-link"
                         >Digital Forensics</a
                       >
                     </li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link dropdown-toggle">
+                  <a href="#" class="nav-link dropdown-toggle active">
                     Report A Cyber Crime
                   </a>
                   <ul class="dropdown-menu">
@@ -284,6 +202,8 @@
                     <li class="nav-item">
                       <a href="pricing.html" class="nav-link">Pricing</a>
                     </li>
+                    
+
                     <li class="nav-item">
                       <a href="privacy-policy.html" class="nav-link"
                         >Privacy Policy</a
@@ -405,16 +325,17 @@
       </div>
     </div>
     <!-- End Navbar Area -->
+
     <!-- Start Page Title Area -->
     <div class="page-title-area">
       <div class="container">
         <div class="page-title-content text-center">
-          <h1>Network Penetration Testing</h1>
+          <h1>Social Media Fraud Report</h1>
           <ul class="list-unstyled ps-0 mb-0">
             <li class="d-inline-block">
               <a class="text-decoration-none" href="index.html">Home</a>
             </li>
-            <li class="d-inline-block">Network Penetration Testing</li>
+            <li class="d-inline-block">Report A Cyber Crime > Financial Fraud Report</li>
           </ul>
         </div>
       </div>
@@ -422,140 +343,77 @@
     <!-- End Page Title Area -->
 
     <!-- Start About Area -->
-    <div class="about-area pt-100 pb-75">
-      <div class="container">
-        <div class="row align-items-center" data-cue="slideInUp">
-          <div class="col-lg-6">
-            <div class="about-image">
-              <img
-                src="assets/images/network/Network-Penetration-Testing.jpg"
-                alt="about-image"
-              />
-              <img
-                src="assets/images/network/pentest2.webp"
-                alt="about-image"
-              />
-              <img src="assets/images/network/Network.webp" alt="about-image" />
-              <img
-                src="assets/images/network/Network-Penetration-Testing.jpg"
-                alt="about-image"
-              />
+    <div class="container mt-5">
+      <form action="process_form.php" method="POST" enctype="multipart/form-data">
+        <div class="mb-3 row">
+            <label for="full_name" class="col-sm-4 col-form-label">Full Name :</label>
+            <div class="col-sm-8">
+                <input id="full_name" name="full_name" placeholder="Enter Your Full Name Here" type="text" required="required" class="form-control">
             </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="about-content about-style">
-              <div class="title">
-                <span class="d-block">About Network Penetration Testing</span>
-                <h2>Network Penetration Testing</h2>
-                <p>
-                  At Cyber Armor, we use a comprehensive and systematic approach
-                  to network penetration testing. Our methodology ensures that
-                  every aspect of your network security is evaluated, and
-                  potential vulnerabilities are identified and mitigated
-                  effectively. Below is an overview of our network penetration
-                  testing process
-                </p>
-                <h3>Initial Scoping & Objectives Agreement</h3>
-                <h4>Understanding Your Needs</h4>
-                <p>
-                  👉We begin by working closely with your team to understand
-                  your network environment and security concerns.
-                </p>
-                <p>
-                  👉Define the scope of the testing and establish clear
-                  objectives to ensure that our efforts are aligned with your
-                  specific requirements.
-                </p>
-                <h3>Reconnaissance</h3>
-                <h4>Information Gathering</h4>
-                <p>
-                  <br />
-                  👉Conduct passive and active information gathering to
-                  understand the structure and components of your network.
-                  Identify potential entry points and weaknesses by collecting
-                  data on your network architecture, services, and
-                  applications.<br />
-                  👉Identify potential entry points and weaknesses by collecting
-                  data on your network architecture, services, and applications.
-                  <br />
-                </p>
-                <h3>Scanning</h3>
-                <h4>Identifying Vulnerabilities</h4>
-                <p>
-                  <br />
-                  👉Use advanced scanning tools to detect open ports, services,
-                  and potential vulnerabilities in your network.<br />
-                  👉Perform both automated and manual scanning to ensure
-                  comprehensive coverage and accuracy.
-                  <br />
-                </p>
-                <h3>Exploitation</h3>
-                <h4>Testing the Defenses</h4>
-                <p>
-                  <br />
-                  👉Attempt to exploit identified vulnerabilities to assess
-                  their impact and the potential risk they pose.<br />
-                  👉Simulate real-world attack scenarios to understand how an
-                  attacker could infiltrate your network and what damage they
-                  could cause.
-                  <br />
-                </p>
-                <h3>Reporting</h3>
-                <h4>Detailed Findings and Recommendations</h4>
-                <p>
-                  <br />
-                  👉Compile a detailed report that outlines our findings,
-                  including identified vulnerabilities, their severity, and
-                  potential impact.<br />
-                  👉Provide actionable recommendations to address the
-                  vulnerabilities and improve your network's security posture.
-                  <br />
-                </p>
-                <h3>Remediation</h3>
-                <h4>Assisting with Fixes</h4>
-                <p>
-                  <br />
-                  👉Work with your team to develop and implement a remediation
-                  plan to fix the identified vulnerabilities.<br />
-                  👉Offer guidance and support throughout the remediation
-                  process to ensure effective resolution.
-                  <br />
-                </p>
-              </div>
-              <div class="row">
-                <div class="col-lg-6 col-sm-6">
-                  <div class="about-item">
-                    <div class="point">4.7+</div>
-                    <h3>Review Customer</h3>
-                    <p>
-                      Organizations are now forced to implement comprehensive
-                      cyber security strategies,
-                    </p>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                  <div class="about-item">
-                    <div class="point">4K+</div>
-                    <h3>Project Completed</h3>
-                    <p>
-                      Organizations are now forced to implement comprehensive
-                      cyber security strategies,
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <a
-                class="demo text-decoration-none"
-                style="cursor: pointer"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal2"
-              >
-                Request A Network Penetration Testing
-              </a>
-            </div>
-          </div>
         </div>
-      </div>
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-4 col-form-label">Email :</label>
+            <div class="col-sm-8">
+                <input id="email" name="email" placeholder="Enter Your Email Address Here" type="email" class="form-control" required="required">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="phone_number" class="col-sm-4 col-form-label">Phone Number</label>
+            <div class="col-sm-8">
+                <input id="phone_number" name="phone_number" placeholder="Enter Your Phone Number Here" type="text" class="form-control" aria-describedby="phone_numberHelpBlock">
+                <span id="phone_numberHelpBlock" class="form-text text-muted">Not required if you only want to contact via email</span>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="incident_date" class="col-sm-4 col-form-label">Incident Date :</label>
+            <div class="col-sm-8">
+                <input id="incident_date" name="incident_date" type="date" required="required" class="form-control">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="incident_time" class="col-sm-4 col-form-label">Incident Time</label>
+            <div class="col-sm-8">
+                <input id="incident_time" name="incident_time" type="time" required="required" class="form-control">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="social-media-platform" class="col-sm-4 col-form-label">Social Media Platform :</label>
+            <div class="col-sm-8">
+                <select id="social-media-platform" name="social-media-platform" class="form-select" required="required">
+                    <option value="Facebook">Facebook</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="WhatsApp">WhatsApp</option>
+                    <option value="Snapchat">Snapchat</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="description" class="col-sm-4 col-form-label">Description</label>
+            <div class="col-sm-8">
+                <textarea id="description" name="description" cols="40" rows="10" class="form-control" aria-describedby="descriptionHelpBlock"></textarea>
+                <span id="descriptionHelpBlock" class="form-text text-muted">Enter Your Detailed Description About Your Financial Fraud</span>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="account_handle" class="col-sm-4 col-form-label">Account Handle</label>
+            <div class="col-sm-8">
+                <input id="account_handle" name="victim_name" placeholder="Enter Victim Name If You Know" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="evidence_files" class="col-sm-4 col-form-label">Evidence Files</label>
+            <div class="col-sm-8">
+                <input id="evidence_files" name="evidence_files[]" type="file" class="form-control" multiple aria-describedby="evidence_filesHelpBlock">
+                <span id="evidence_filesHelpBlock" class="form-text text-muted">If you have any photos or videos, attach them here</span>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="offset-sm-4 col-sm-8">
+                <button name="submit" type="submit" class="btn btn-block btn-lg btn-primary">Report</button>
+            </div>
+        </div>
+    </form>
     </div>
     <!-- End About Area -->
 
@@ -570,7 +428,6 @@
                 <h2>What We Do for Your (SIEM) Security in Cyber Armor.</h2>
               </div>
             </div>
-            
           </div>
         </div>
         <div class="row" data-cues="fadeIn">
@@ -589,11 +446,12 @@
                   >Website Security</a
                 >
               </h3>
-              <p>Web security protects websites from cyber threats through encryption, secure authentication, and regular updates. It ensures data confidentiality, integrity, and user trust.</p>
-              <a
-                class="read-more text-decoration-none"
-                href="web-testing.html"
-              >
+              <p>
+                Web security protects websites from cyber threats through
+                encryption, secure authentication, and regular updates. It
+                ensures data confidentiality, integrity, and user trust.
+              </p>
+              <a class="read-more text-decoration-none" href="web-testing.html">
                 Read More
                 <i class="ri-arrow-right-line"></i>
               </a>
@@ -605,7 +463,8 @@
                 <a href="service-details.html">
                   <img
                     src="assets/images/app-test/mb.jpeg"
-                    alt="services-image" width="100%"
+                    alt="services-image"
+                    width="100%"
                   />
                 </a>
               </div>
@@ -615,11 +474,12 @@
                 >
               </h3>
               <p>
-                App testing involves evaluating a mobile application for functionality, usability, and performance to ensure it meets user expectations and requirements. It includes identifying bugs, ensuring compatibility, and verifying security.</p>
-              <a
-                class="read-more text-decoration-none"
-                href="App-testing.html"
-              >
+                App testing involves evaluating a mobile application for
+                functionality, usability, and performance to ensure it meets
+                user expectations and requirements. It includes identifying
+                bugs, ensuring compatibility, and verifying security.
+              </p>
+              <a class="read-more text-decoration-none" href="App-testing.html">
                 Read More
                 <i class="ri-arrow-right-line"></i>
               </a>
