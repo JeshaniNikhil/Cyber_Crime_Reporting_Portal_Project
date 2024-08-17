@@ -323,39 +323,16 @@
             <div class="modal-body">
               <div class="frm-status"></div>
               <div class="mb-3">
-                <label for="userFirstName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                <label for="name" class="form-label">name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name">
               </div>
               <div class="mb-3">
-                <label for="userEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                <label for="email" class="form-label">email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter Email">
               </div>
               <div class="mb-3">
-                <label for="requirements" class="form-label">Requirements Details</label>
-                <input type="text" class="form-control" id="requirements" placeholder="Requirements">
-              </div>
-              <div class="mb-3">
-                <label for="domain" class="form-label">Domain Name Of Website (If Website Is Hosted)</label>
-                <input type="url" class="form-control" id="domain" placeholder="Domain Name">
-              </div>
-              <div class="mb-3">
-                <label for="testing_type" class="form-label">Type of Testing Required</label><br>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="functionalTesting" value="Functional Testing">
-                  <label class="form-check-label" for="functionalTesting">Functional Testing</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="usabilityTesting" value="Usability Testing">
-                  <label class="form-check-label" for="usabilityTesting">Usability Testing</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="performanceTesting" value="Performance Testing">
-                  <label class="form-check-label" for="performanceTesting">Performance Testing</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="securityTesting" value="Security Testing">
-                  <label class="form-check-label" for="securityTesting">Security Testing</label>
-                </div>
+                <label for="password" class="form-label">password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter Password">
               </div>
             </div>
             <div class="modal-footer">
@@ -408,7 +385,7 @@
           <div class="row mb-2">
             <div class="col-sm-6">
               <div class="row">
-                <h1>Web Testing Requests Detail</h1>
+                <h1>User Details</h1>
                 <a href="javascript:void(0);" class="p-1" onclick="addData()"><svg xmlns="http://www.w3.org/2000/svg"
                     width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                     <path
@@ -431,7 +408,7 @@
         <!-- Default box -->
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Web Testing Requests</h3>
+            <h3 class="card-title">User Details</h3>
           </div>
           <div class="card-body">
             <div class="top-panel">
@@ -442,14 +419,10 @@
             <table id="dataList" class="display table-responsive" style="width:100%">
               <thead>
                 <tr>
-                  <th>request id</th>
-                  <th>name</th>
+                  <th>user id</th>
+                  <th>user name</th>
                   <th>email</th>
-                  <th>domain</th>
-                  <th>requirements</th>
-                  <th>testing_type</th>
-                  <th>status</th>
-                  <th>Update status</th>
+                  <th>user created (date and time)</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -494,9 +467,9 @@
     var table = $('#dataList').DataTable({
       "processing": true,
       "serverSide": true,
-      "ajax": "fetchData.php",
+      "ajax": "fetchUserData.php",
       "columnDefs": [
-        { "orderable": false, "targets": 6 }
+        { "orderable": false, "targets": 4 }
       ]
     });
     $(document).ready(function () {

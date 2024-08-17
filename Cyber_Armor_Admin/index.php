@@ -66,9 +66,10 @@
 </body>
 </html>
 <?php
-if(isset($_REQUEST['btnlogin'])){
 session_start();
 include('../db/config.php');
+
+// Function to validate MAC address (if needed)
 function validateMAC($allowedMACs, $userMAC) {
     $userMAC = strtolower(preg_replace('/[^a-f0-9]/', '', $userMAC));
     foreach ($allowedMACs as $allowedMAC) {
@@ -80,17 +81,19 @@ function validateMAC($allowedMACs, $userMAC) {
     return false;
 }
 
-$allowedMACs = ['::1'];
-
+$allowedMACs = ['::1']; // Example MACs
 $userMAC = $_SERVER['REMOTE_ADDR'];
 
+// Validate MAC address
 if (!validateMAC($allowedMACs, $userMAC)) {
     die('Access denied. MAC address not authorized.');
 }
 
-$max_attempts = 3; 
-$block_duration = 5; 
+// Define login limits and block duration
+$max_attempts = 3;
+$block_duration = 5; // Duration in seconds
 
+// Check if user is currently blocked
 if (isset($_SESSION['block_time']) && time() < $_SESSION['block_time']) {
     $time_left = $_SESSION['block_time'] - time();
     echo "<script>
@@ -98,7 +101,7 @@ if (isset($_SESSION['block_time']) && time() < $_SESSION['block_time']) {
                 icon: 'error',
                 title: 'Too many login attempts!',
                 text: 'Please try again in $time_left seconds.',
-                timer: 5000 // Optional timer to auto-close the alert
+                timer: 5000
             });
           </script>";
     exit;
@@ -106,52 +109,104 @@ if (isset($_SESSION['block_time']) && time() < $_SESSION['block_time']) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'] ?? '';
-    $temp_password = $_POST['password'];
+    $temp_password = $_POST['password'] ?? '';
     $password = hash('sha256', $temp_password);
+
+    // Prepare and execute the query
     $stmt = $pdo->prepare('SELECT email, password_hash FROM admin_login WHERE email = :email');
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    $stmt->execute();
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    $password_new=$result['password_hash'];
-    if ($password == $password_new) {
-        
-        $_SESSION['authenticated'] = true;
-        $_SESSION['client_ip'] = $_SERVER['REMOTE_ADDR']; 
-        $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT']; 
 
-        unset($_SESSION['login_attempts']);
-
-        session_regenerate_id(true);
-
-        header('Location: dashboard.php');
+    try {
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Database error!',
+                    text: 'Database query failed: " . addslashes($e->getMessage()) . "',
+                    timer: 5000
+                });
+              </script>";
         exit;
-    } else {
-        $_SESSION['login_attempts'] = isset($_SESSION['login_attempts']) ? $_SESSION['login_attempts'] + 1 : 1;
+    }
 
-        if ($_SESSION['login_attempts'] >= $max_attempts) {
-            $_SESSION['block_time'] = time() + $block_duration; 
-          
-            echo "<script>
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Too many login attempts!',
-                        text: 'Please try again in $block_duration seconds.',
-                        timer: 5000 // Optional timer to auto-close the alert
-                    });
-                  </script>";
-            exit;
-        }
+    if ($result === false) {
+        // Email does not exist or query failed
         echo "<script>
                 Swal.fire({
                     icon: 'error',
                     title: 'Invalid email or password!',
                     text: 'Please try again.',
-                    timer: 5000 // Optional timer to auto-close the alert
+                    timer: 5000
                 });
               </script>";
+        
+        // Increment login attempts
+        $_SESSION['login_attempts'] = isset($_SESSION['login_attempts']) ? $_SESSION['login_attempts'] + 1 : 1;
+
+        // Check if login attempts exceed the maximum
+        if ($_SESSION['login_attempts'] >= $max_attempts) {
+            $_SESSION['block_time'] = time() + $block_duration;
+
+            echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Too many login attempts!',
+                        text: 'Please try again in $block_duration seconds.',
+                        timer: 5000
+                    });
+                  </script>";
+            exit;
+        }
+
+        exit;
+    }
+
+    $password_new = $result['password_hash'] ?? null;
+
+    // Check if the password is correct
+    if ($password == $password_new) {
+        // Successful login
+        $_SESSION['authenticated'] = true;
+        $_SESSION['client_ip'] = $_SERVER['REMOTE_ADDR'];
+        $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+
+        unset($_SESSION['login_attempts']);
+        session_regenerate_id(true);
+
+        header('Location: dashboard.php');
+        exit;
+    } else {
+        // Incorrect password
+        echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid email or password!',
+                    text: 'Please try again.',
+                    timer: 5000
+                });
+              </script>";
+
+        // Increment login attempts
+        $_SESSION['login_attempts'] = isset($_SESSION['login_attempts']) ? $_SESSION['login_attempts'] + 1 : 1;
+
+        // Check if login attempts exceed the maximum
+        if ($_SESSION['login_attempts'] >= $max_attempts) {
+            $_SESSION['block_time'] = time() + $block_duration;
+
+            echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Too many login attempts!',
+                        text: 'Please try again in $block_duration seconds.',
+                        timer: 5000
+                    });
+                  </script>";
+            exit;
+        }
+
         exit;
     }
 }
-}
 ?>
-
