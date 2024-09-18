@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="assets/css/magnific.popup.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js" integrity="sha512-KFHXdr2oObHKI9w4Hv1XPKc898mE4kgYx58oqsc/JqqdLMDI4YjOLzom+EMlW8HFUd0QfjfAvxSL6sEq/a42fQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link href="assets/images/white-logo.png" type="image/x-icon" rel="icon">
     </head>
     <body>
@@ -45,7 +48,7 @@
 				<div class="container">
 					<div class="mobile-responsive-menu">
 						<div class="logo">
-							<a href="index.html">
+							<a href="index.php">
 								<img src="assets/images/white-logo.png" class="main-logo" height="40px" width="80px" alt="logo">
 							</a>
 						</div>
@@ -56,14 +59,14 @@
 			<div class="desktop-nav">
 				<div class="container-fluid">
 					<nav class="navbar navbar-expand-md navbar-light">
-						<a class="navbar-brand me-0" href="index.html">
+						<a class="navbar-brand me-0" href="index.php">
 							<img src="assets/images/black-logo.png" height="50px" width="100px" class="black-logo" alt="logo">
 						</a>
 
 						<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 							<ul class="navbar-nav m-auto">
 								<li class="nav-item">
-									<a href="index.html" class="nav-link">
+									<a href="index.php" class="nav-link">
 										Home            
 									</a>
 								</li>
@@ -104,14 +107,12 @@
 										<li class="nav-item">
 											<a href="Social-Media-Fraud.html" class="nav-link">Social Media Fraud Report</a>
 										</li>
+										
 										<li class="nav-item">
-											<a href="service-details.html" class="nav-link">Email Fraud Report</a>
+											<a href="RansomeWare.html" class="nav-link">Ransomware Attacks Report</a>
 										</li>
 										<li class="nav-item">
-											<a href="service-details.html" class="nav-link">Ransomware Attacks Report</a>
-										</li>
-										<li class="nav-item">
-											<a href="service-details.html" class="nav-link">Other Fraud Report</a>
+											<a href="OtherFraudReport.html" class="nav-link">Other Fraud Report</a>
 										</li>
 									</ul>
 								</li>
@@ -211,7 +212,7 @@
                     <h1>Contact  Us</h1>
                     <ul class="list-unstyled ps-0 mb-0">
                         <li class="d-inline-block">
-                            <a class="text-decoration-none" href="index.html">Home</a>
+                            <a class="text-decoration-none" href="index.php">Home</a>
                         </li>
                         <li class="d-inline-block">Contact</li>
                     </ul>
@@ -272,39 +273,33 @@
                     <h2>Get in Touch With Us Today.</h2>
                 </div>
                 <div class="contact-form-info" data-cue="slideInUp">
-                    <form>
+                    <form id="contact_form" method="post">
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Name">
+                                    <input type="text" class="form-control" placeholder="Name" name="name" id="name">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email">
+                                    <input type="email" class="form-control" placeholder="Email" name="email" id="email">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Phone">
+                                    <input type="text" class="form-control" placeholder="Phone" name="phone" id="phone">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Subject">
+                                    <input type="text" class="form-control" placeholder="Subject" name="subject" id="subject">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control textarea" placeholder="Enter Your Comments" rows="3"></textarea>
+                            <textarea class="form-control textarea" placeholder="Enter Your Comments" rows="3" name="comments" id="comments"></textarea>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Save my name, email, and website in this browser for the next time I comment.
-                            </label>
-                        </div>
-                        <button type="submit">Send A Message</button>
+                        <button type="submit">Send A Email</button>
                     </form>
                 </div>
             </div>
@@ -361,28 +356,12 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-6">
-							<div class="single-contact-info">
-								<div class="contact-submit d-flex align-items-center justify-content-between">
-									<h3>Join Our Newsletter</h3>
-									<form>
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Enter Your Email">
-											<button type="submit">
-												<i class="ri-send-plane-fill"></i>
-												Submit Now
-											</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
+						 
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- End Contact Area -->
-
 		<!-- Start Footer Area -->
 		<div class="footer-area">
 			<div class="container">
@@ -390,7 +369,7 @@
 					<div class="row">
 						<div class="col-lg-4">
 							<div class="single-footer-info ms-0">
-								<a class="text-decoration-none logo" href="index.html">
+								<a class="text-decoration-none logo" href="index.php">
 									<img src="assets/images/white-logo.png" class="black-logo" alt="logo">
 								</a>
 								<p>Cybersecurity is crucial in today's digital age, where many individuals and organizations store a significant amount of sensitive data on computers...</p>
@@ -417,25 +396,7 @@
 										</ul>
 									</div>
 								</div>
-								<div class="col-lg-4 col-sm-6 col-md-4">
-									<div class="single-footer-info">
-										<h3>Quick Links</h3>
-										<ul class="list-unstyled ps-0 mb-0">
-											<li>
-												<a class="text-decoration-none" href="about.html">About Us</a>
-											</li>
-											<li>
-												<a class="text-decoration-none" href="services.html">Services</a>
-											</li>
-											<li>
-												<a class="text-decoration-none" href="testimonials.html">Testimonial</a>
-											</li>
-											<li>
-												<a class="text-decoration-none" href="blog-details.html">Our Blog</a>
-											</li>
-										</ul>
-									</div>
-								</div>
+								 
 								<div class="col-lg-4 col-sm-6 col-md-4">
 									<div class="single-footer-info">
 										<h3>Resourses</h3>
@@ -480,13 +441,13 @@
 
 		<!-- Demo  -->
 		<!-- <div class="ahs-demo">
-			<a href="rtl/index.html">RTL</a>
+			
 		</div> -->
 		<a href="#" target="_blank" class="ahs-purchase hide-on-mobile">Buy Now</a>
 		<!-- Demo  -->
 
         <!-- Js Files -->
-        <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js"></script>
+        <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
 		<script src="assets/js/odometer.min.js"></script>
         <script src="assets/js/meanmenu.min.js"></script>
@@ -494,5 +455,73 @@
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/jquery.magnific.popup.js"></script>
         <script src="assets/js/custom.js"></script>
+		<script>
+			$(document).ready(function () {
+				$("#contact_form").validate({
+					rules:{
+						name: {
+							required: true,
+							minlength: 2,
+							maxlength:100,
+						},
+						email:{
+							required: true,
+							email: true
+						},
+						phone:{
+							required: true,
+							minlength: 10,
+							maxlength: 10,
+						},
+						subject:{
+							required:true,
+						}
+					}
+				});
+				$("#contact_form").submit(function (event) {
+                  event.preventDefault();
+                  var formData = {
+                    name: $("#name").val(),
+                    email: $("#email").val(),
+                    phone: $("#phone").val(),
+                    subject: $("#subject").val(),
+                    comments: $("#comments").val(),
+                  };
+                  $.ajax({
+                    type: "POST",
+                    url: "insert_contact_request.php",
+                    data: formData,
+                    dataType: "json",
+                    encode: true,
+                    success: function (response) {
+                      if (response.status === "success") {
+                        Swal.fire({
+                          title: "Request Sent Successfully",
+                          text: "Contact Request Sent Successfully",
+                          icon: "success",
+                        }).then(() => {
+                          $("#contact_form")[0].reset(); // Clear the form fields
+                          
+                        });
+                      } else {
+                        Swal.fire({
+                          title: "Error",
+                          text: response.message,
+                          icon: "error",
+                        });
+                      }
+                    },
+                    error: function (xhr, status, error) {
+                      console.error(xhr.responseText);
+                      Swal.fire({
+                        title: "Error",
+                        text: "There was an error processing your request.",
+                        icon: "error",
+                      });
+                    },
+                  });
+                });
+			});
+		</script>
     </body>
 </html>

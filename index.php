@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['email'])){
+    header("Location: index2.php"); 
+    exit(); 
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
@@ -36,6 +43,8 @@
     <link href="assets/images/white-logo.png" type="image/x-icon" rel="icon" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script>
 		$(document).ready(function () {
 			$("#loginForm").validate({
@@ -76,11 +85,11 @@
 						minlength: 8,
 						strongPassword: true
 					},
-					// password_confirmation: {
-					// 	required: true,
-					// 	minlength: 8,
-					// 	// equalTo: "[name='password']"
-					// }
+					password_confirmation: {
+						required: true,
+						minlength: 8,
+						equalTo: "[name='password']"
+					}
 				},
 				messages: {
 					name: {
@@ -95,11 +104,11 @@
 						required: "Password Required. Please enter your Password to proceed with your request",
 						minlength: "Your password must be at least 8 characters long"
 					},
-					// password_confirmation: {
-					// 	required: "Confirm Password Required. Please enter your Confirm Password to proceed with your request",
-					// 	minlength: "Your password confirmation must be at least 8 characters long",
-					// 	equalTo: "Passwords do not match"
-					// }
+					password_confirmation: {
+						required: "Confirm Password Required. Please enter your Confirm Password to proceed with your request",
+						minlength: "Your password confirmation must be at least 8 characters long",
+						equalTo: "Passwords do not match"
+					}
 				}
 			});
       $.validator.addMethod("strongPassword", function(value, element) {
@@ -373,29 +382,6 @@ h1 {
     </style>
   </head>
   <body>
-    <div id="forgetpwd" class="modal-style-2 dark modal mt-5">
-      <div class="modal-dialog modal-login">
-        <div class="modal-content">
-          <div class="modal-header p-0">				
-            <h4 class="modal-title">Forget Password</h4>
-            <i class="fa fa-window-close close" data-dismiss="modal" aria-hidden="true" aria-hidden="true"></i>
-          </div>
-          <div class="modal-body">
-            <form action="" method="" class="mt-3">
-              
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                  <input type="email" class="form-control" name="email" placeholder="Enter your Email" required="required">
-                </div>
-              <br>
-              <div class=" text-center mt-2 mb-0">
-                <button type="submit" style="background-color: cyan;" class="btn btn-primary btn-sm">Send Link</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- Start Modal -->
     <div id="loginModal2" class="modal-style-2 dark modal mt-5">
       <div class="modal-dialog modal-login">
@@ -405,7 +391,7 @@ h1 {
             <i class="fa fa-window-close close" data-dismiss="modal" aria-hidden="true" aria-hidden="true"></i>
           </div>
           <div class="modal-body">
-            <form action="" id="loginForm" method="" class="mt-3">
+            <form id="loginForm" method="post" class="mt-3">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                   <input type="email" class="form-control" name="email" placeholder="Enter your Email" required="required">
@@ -416,17 +402,6 @@ h1 {
                   <input type="password" class="form-control" name="password" placeholder="Enter password" required="required" autocomplete="on">
                 </div>
               <br>
-              <div class="row pl-1 pr-1">
-                              <div class="col text-left">
-                                  <label class="custom-control custom-checkbox">
-                                      <input type="checkbox" class="custom-control-input" id="item_checkbox" name="item_checkbox" value="option1">
-                                      <span class="custom-control-label">&nbsp;Remember Me</span>
-                                  </label>
-                              </div>
-                              <div class="col text-right hint-text pt-0">
-                                <a href="#forgetpwd" data-dismiss="modal" data-toggle="modal"> Forgot Password?</a>
-                              </div>
-                          </div>
               <div class=" text-center mt-2 mb-0">
                 <button type="submit" class="btn btn-primary btn-sm" style="background-color: cyan;">Login</button>
               </div>
@@ -522,8 +497,19 @@ h1 {
             cache: false,
             processData: false,
             success: function(data) {
-              if(data) {
-                console.log(data);
+              if(data.status=="success") {
+                Swal.fire({
+                title: "Register Successful",
+                text: "Success",
+                icon: "success"
+              });
+              }
+              if(data.status=="error"){
+                Swal.fire({
+                  title: "Register Failed",
+                  text: "All Fields Are Required",
+                  icon: "error"
+                  });
               }
             },
             error: function(xhr, status, error) {
@@ -531,14 +517,40 @@ h1 {
             }
           });
         });
+        $("#loginForm").submit(function(e) {
+          e.preventDefault();
+          var formData = new FormData(this);
+          $.ajax({
+            url: "login.php",
+            type: "POST",
+            data: formData,
+            dataType: 'json',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(data) {
+              if(data.status=="success") {
+                window.location.href = data.redirect;
+              }
+              if(data.status=="error"){
+                Swal.fire({
+                  title: "Login Failed",
+                  text: data.message,
+                  icon: "error"
+                  });
+              }
+            },
+          });
+        });
       });
       </script>
+
     <div class="navbar-area style-2">
       <div class="mobile-responsive-nav">
         <div class="container">
           <div class="mobile-responsive-menu">
             <div class="logo">
-              <a href="index.html">
+              <a href="index.php">
                 <img
                   src="assets/images/white-logo.png"
                   class="main-logo"
@@ -554,7 +566,7 @@ h1 {
       <div class="desktop-nav style-2" >
         <div class="container-fluid">
           <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand me-0" href="index.html">
+            <a class="navbar-brand me-0" href="index.php">
                 <div class="cyber-armor">
                     <img src="assets/images/white-logo.png" class="black-logo" height="50px" width="100px" alt="logo" />
                     <span class="text">Cyber Armor</span>
@@ -601,13 +613,10 @@ h1 {
                             <a href="Social-Media-Fraud.html" class="nav-link">Social Media Fraud Report</a>
                         </li>
                         <li class="nav-item">
-                            <a href="service-details.html" class="nav-link">Email Fraud Report</a>
+                            <a href="RansomeWare.html" class="nav-link">Ransomware Attacks Report</a>
                         </li>
                         <li class="nav-item">
-                            <a href="service-details.html" class="nav-link">Ransomware Attacks Report</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="service-details.html" class="nav-link">Other Fraud Report</a>
+                            <a href="OtherFraudReport.html" class="nav-link">Other Fraud Report</a>
                         </li>
                     </ul>
                 </li>
@@ -967,8 +976,8 @@ h1 {
               </div>
               <div class="content">
                 <h3>
-                  <a class="text-decoration-none" href="service-details.html"
-                    >Email Fraud Report</a
+                  <a class="text-decoration-none" href="RansomeWare.html"
+                    >Ransomware Attacks Report</a
                   >
                 </h3>
                 <a
@@ -1033,13 +1042,13 @@ h1 {
               </div>
               <div class="content">
                 <h3>
-                  <a class="text-decoration-none" href="service-details.html"
-                    >Ransomware Attacks Report</a
+                  <a class="text-decoration-none" href="OtherFraudReport.html"
+                    >Other Fraud Report</a
                   >
                 </h3>
                 <a
                   class="read-more text-decoration-none"
-                  href="service-details.html"
+                  href="OtherFraudReport.html"
                 >
                   Read More
                   <i class="ri-arrow-right-line"></i>
@@ -1644,7 +1653,7 @@ h1 {
               <div class="detail active">
                 <div class="content">
                   <h3>
-                    <a class="text-decoration-none" href="service-details.html"
+                    <a class="text-decoration-none" href="RansomeWare.html"
                       >Operation Titan Guard</a
                     >
                   </h3>
@@ -2378,28 +2387,7 @@ h1 {
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="single-contact-info">
-                <div
-                  class="contact-submit d-flex align-items-center justify-content-between"
-                >
-                  <h3>Join Our Newsletter</h3>
-                  <form>
-                    <div class="form-group">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter Your Email"
-                      />
-                      <button type="submit">
-                        <i class="ri-send-plane-fill"></i>
-                        Submit Now
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+          
           </div>
         </div>
       </div>
@@ -2413,7 +2401,7 @@ h1 {
           <div class="row">
             <div class="col-lg-4">
               <div class="single-footer-info ms-0">
-                <a class="text-decoration-none logo" href="index.html">
+                <a class="text-decoration-none logo" href="index.php">
                   <img src="assets/images/white-logo.png" alt="logo" />
                 </a>
                 <p>
@@ -2448,33 +2436,7 @@ h1 {
                     </ul>
                   </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 col-md-4">
-                  <div class="single-footer-info">
-                    <h3>Quick Links</h3>
-                    <ul class="list-unstyled ps-0 mb-0">
-                      <li>
-                        <a class="text-decoration-none" href="about.html"
-                          >About Us</a
-                        >
-                      </li>
-                      <li>
-                        <a class="text-decoration-none" href="services.html"
-                          >Services</a
-                        >
-                      </li>
-                      <li>
-                        <a class="text-decoration-none" href="testimonials.html"
-                          >Testimonial</a
-                        >
-                      </li>
-                      <li>
-                        <a class="text-decoration-none" href="blog-details.html"
-                          >Our Blog</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+               
                 <div class="col-lg-4 col-sm-6 col-md-4">
                   <div class="single-footer-info">
                     <h3>Resourses</h3>
@@ -2530,7 +2492,7 @@ h1 {
     </div>
     <!-- Demo  -->
     <!-- <div class="ahs-demo">
-			<a href="rtl/index.html">RTL</a>
+			
 		</div> -->
     <a href="#" target="_blank" class="ahs-purchase hide-on-mobile">Buy Now</a>
     <!-- Demo  -->

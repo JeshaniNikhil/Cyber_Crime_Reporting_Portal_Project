@@ -92,7 +92,7 @@
         <div class="container">
           <div class="mobile-responsive-menu">
             <div class="logo">
-              <a href="index.html">
+              <a href="index.php">
                 <img
                   src="assets/images/white-logo.png"
                   class="main-logo"
@@ -108,7 +108,7 @@
       <div class="desktop-nav">
         <div class="container-fluid">
           <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand me-0" href="index.html">
+            <a class="navbar-brand me-0" href="index.php">
               <img
                 src="assets/images/black-logo.png"
                 height="50px"
@@ -123,7 +123,7 @@
             >
               <ul class="navbar-nav m-auto">
                 <li class="nav-item mt-2">
-                  <a href="index.html" class="nav-link"> Home </a>
+                  <a href="index.php" class="nav-link"> Home </a>
                 </li>
                 <li class="nav-item">
                   <a href="about.html" class="nav-link">About</a>
@@ -172,18 +172,14 @@
                         >Social Media Fraud Report</a
                       >
                     </li>
+                    
                     <li class="nav-item">
-                      <a href="service-details.html" class="nav-link"
-                        >Email Fraud Report</a
-                      >
-                    </li>
-                    <li class="nav-item">
-                      <a href="service-details.html" class="nav-link"
+                      <a href="RansomeWare.html" class="nav-link"
                         >Ransomware Attacks Report</a
                       >
                     </li>
                     <li class="nav-item">
-                      <a href="service-details.html" class="nav-link"
+                      <a href="OtherFraudReport.html" class="nav-link"
                         >Other Fraud Report</a
                       >
                     </li>
@@ -307,7 +303,7 @@
           <h1>Financial Fraud Report</h1>
           <ul class="list-unstyled ps-0 mb-0">
             <li class="d-inline-block">
-              <a class="text-decoration-none" href="index.html">Home</a>
+              <a class="text-decoration-none" href="index.php">Home</a>
             </li>
             <li class="d-inline-block">Report A Cyber Crime > Financial Fraud Report</li>
           </ul>
@@ -319,6 +315,7 @@
     <!-- Start About Area -->
     <div class="container mt-5">
       <form action="process_form.php" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="table_name" value="fraud_reports">
         <div class="mb-3 row">
             <label for="full_name" class="col-sm-4 col-form-label">Full Name :</label>
             <div class="col-sm-8">
@@ -379,13 +376,6 @@
             <label for="victim_name" class="col-sm-4 col-form-label">Victim Name</label>
             <div class="col-sm-8">
                 <input id="victim_name" name="victim_name" placeholder="Enter Victim Name If You Know" type="text" class="form-control">
-            </div>
-        </div>
-        <div class="mb-3 row">
-            <label for="evidence_files" class="col-sm-4 col-form-label">Evidence Files</label>
-            <div class="col-sm-8">
-                <input id="evidence_files" name="evidence_files[]" type="file" class="form-control" multiple aria-describedby="evidence_filesHelpBlock">
-                <span id="evidence_filesHelpBlock" class="form-text text-muted">If you have any photos or videos, attach them here</span>
             </div>
         </div>
         <div class="mb-3 row">
@@ -1035,28 +1025,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="single-contact-info">
-                <div
-                  class="contact-submit d-flex align-items-center justify-content-between"
-                >
-                  <h3>Join Our Newsletter</h3>
-                  <form>
-                    <div class="form-group">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter Your Email"
-                      />
-                      <button type="submit">
-                        <i class="ri-send-plane-fill"></i>
-                        Submit Now
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+          
           </div>
         </div>
       </div>
@@ -1070,7 +1039,7 @@
           <div class="row">
             <div class="col-lg-4">
               <div class="single-footer-info ms-0">
-                <a class="text-decoration-none logo" href="index.html">
+                <a class="text-decoration-none logo" href="index.php">
                   <img
                     src="assets/images/white-logo.png"
                     class="black-logo"
@@ -1109,33 +1078,7 @@
                     </ul>
                   </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 col-md-4">
-                  <div class="single-footer-info">
-                    <h3>Quick Links</h3>
-                    <ul class="list-unstyled ps-0 mb-0">
-                      <li>
-                        <a class="text-decoration-none" href="about.html"
-                          >About Us</a
-                        >
-                      </li>
-                      <li>
-                        <a class="text-decoration-none" href="services.html"
-                          >Services</a
-                        >
-                      </li>
-                      <li>
-                        <a class="text-decoration-none" href="testimonials.html"
-                          >Testimonial</a
-                        >
-                      </li>
-                      <li>
-                        <a class="text-decoration-none" href="blog-details.html"
-                          >Our Blog</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                
                 <div class="col-lg-4 col-sm-6 col-md-4">
                   <div class="single-footer-info">
                     <h3>Resourses</h3>
@@ -1192,7 +1135,7 @@
 
     <!-- Demo  -->
     <!-- <div class="ahs-demo">
-			<a href="rtl/index.html">RTL</a>
+			
 		</div> -->
     <a href="#" target="_blank" class="ahs-purchase hide-on-mobile">Buy Now</a>
     <!-- Demo  -->

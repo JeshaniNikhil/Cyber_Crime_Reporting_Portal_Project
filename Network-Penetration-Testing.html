@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="assets/css/responsive.css" />
 
     <link href="assets/images/white-logo.png" type="image/x-icon" rel="icon" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
       .modal-bg {
         background-color: #f8f9fa; /* Light grey background */
@@ -82,7 +88,7 @@
           </div>
           <hr />
           <div class="modal-body">
-            <form>
+            <form id="contactForm" method="post">
               <div class="mb-3">
                 <label for="name" class="form-label"
                   >Name Of Company Or Person:</label
@@ -105,8 +111,7 @@
                   id="exampleInputEmail1"
                   placeholder="Enter email"
                 />
-              </div>
-							
+              </div>							
               <div class="mb-3">
 								<div class="form-group">
                 <label for="domain" class="form-label"
@@ -114,7 +119,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="domain"
+                  id="network_scope"
                   placeholder="Describe the scope of your network"
                 />
 							</div>
@@ -159,6 +164,58 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
+            <script>
+              $(document).ready(function () {
+                $("#contactForm").submit(function (event) {
+                  event.preventDefault();
+                  var formData = {
+                    name: $("#name").val(),
+                    email: $("#exampleInputEmail1").val(),
+                    network_scope: $("#network_scope").val(),
+                    requirements: $("#requirements").val(),
+                    testing_type: [],
+                  };
+                  $("input[type='checkbox']:checked").each(function () {
+                    formData.testing_type.push($(this).val());
+                  });
+                  $.ajax({
+                    type: "POST",
+                    url: "insert_network_test_request.php",
+                    data: formData,
+                    dataType: "json",
+                    encode: true,
+                    success: function (response) {
+						console.log(status);
+                      if (response.status === "success") {
+                        Swal.fire({
+                          title: "Request Sent Successfully",
+                          text: "App Testing Request Sent Successfully",
+                          icon: "success",
+                        }).then(() => {
+                          $("#contactForm")[0].reset(); // Clear the form fields
+                          // Assuming you are using Bootstrap's modal
+                          $("#exampleModal2").modal("hide"); // Close the modal (replace '#yourModalId' with your actual modal ID)
+                        });
+                      } else {
+                        Swal.fire({
+                          title: "Error",
+                          text: response.message,
+                          icon: "error",
+                        });
+                      }
+                    },
+                    error: function (xhr, status, error) {
+                      console.error(xhr.responseText);
+                      Swal.fire({
+                        title: "Error",
+                        text: "There was an error processing your request.",
+                        icon: "error",
+                      });
+                    },
+                  });
+                });
+              });
+            </script>
           </div>
         </div>
       </div>
@@ -170,7 +227,7 @@
         <div class="container">
           <div class="mobile-responsive-menu">
             <div class="logo">
-              <a href="index.html">
+              <a href="index.php">
                 <img
                   src="assets/images/white-logo.png"
                   class="main-logo"
@@ -187,7 +244,7 @@
       <div class="desktop-nav">
         <div class="container-fluid">
           <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand me-0" href="index.html">
+            <a class="navbar-brand me-0" href="index.php">
               <img
                 src="assets/images/black-logo.png"
                 height="50px"
@@ -203,7 +260,7 @@
             >
               <ul class="navbar-nav m-auto">
                 <li class="nav-item">
-                  <a href="index.html" class="nav-link"> Home </a>
+                  <a href="index.php" class="nav-link"> Home </a>
                 </li>
 
                 <li class="nav-item">
@@ -254,18 +311,14 @@
                         >Social Media Fraud Report</a
                       >
                     </li>
+                   
                     <li class="nav-item">
-                      <a href="service-details.html" class="nav-link"
-                        >Email Fraud Report</a
-                      >
-                    </li>
-                    <li class="nav-item">
-                      <a href="service-details.html" class="nav-link"
+                      <a href="RansomeWare.html" class="nav-link"
                         >Ransomware Attacks Report</a
                       >
                     </li>
                     <li class="nav-item">
-                      <a href="service-details.html" class="nav-link"
+                      <a href="OtherFraudReport.html" class="nav-link"
                         >Other Fraud Report</a
                       >
                     </li>
@@ -386,7 +439,7 @@
           <h1>Network Penetration Testing</h1>
           <ul class="list-unstyled ps-0 mb-0">
             <li class="d-inline-block">
-              <a class="text-decoration-none" href="index.html">Home</a>
+              <a class="text-decoration-none" href="index.php">Home</a>
             </li>
             <li class="d-inline-block">Network Penetration Testing</li>
           </ul>
@@ -1168,28 +1221,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="single-contact-info">
-                <div
-                  class="contact-submit d-flex align-items-center justify-content-between"
-                >
-                  <h3>Join Our Newsletter</h3>
-                  <form>
-                    <div class="form-group">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter Your Email"
-                      />
-                      <button type="submit">
-                        <i class="ri-send-plane-fill"></i>
-                        Submit Now
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+          
           </div>
         </div>
       </div>
@@ -1203,7 +1235,7 @@
           <div class="row">
             <div class="col-lg-4">
               <div class="single-footer-info ms-0">
-                <a class="text-decoration-none logo" href="index.html">
+                <a class="text-decoration-none logo" href="index.php">
                   <img
                     src="assets/images/white-logo.png"
                     class="black-logo"
@@ -1242,33 +1274,7 @@
                     </ul>
                   </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 col-md-4">
-                  <div class="single-footer-info">
-                    <h3>Quick Links</h3>
-                    <ul class="list-unstyled ps-0 mb-0">
-                      <li>
-                        <a class="text-decoration-none" href="about.html"
-                          >About Us</a
-                        >
-                      </li>
-                      <li>
-                        <a class="text-decoration-none" href="services.html"
-                          >Services</a
-                        >
-                      </li>
-                      <li>
-                        <a class="text-decoration-none" href="testimonials.html"
-                          >Testimonial</a
-                        >
-                      </li>
-                      <li>
-                        <a class="text-decoration-none" href="blog-details.html"
-                          >Our Blog</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                
                 <div class="col-lg-4 col-sm-6 col-md-4">
                   <div class="single-footer-info">
                     <h3>Resourses</h3>
@@ -1325,7 +1331,7 @@
 
     <!-- Demo  -->
     <!-- <div class="ahs-demo">
-			<a href="rtl/index.html">RTL</a>
+			
 		</div> -->
     <a href="#" target="_blank" class="ahs-purchase hide-on-mobile">Buy Now</a>
     <!-- Demo  -->

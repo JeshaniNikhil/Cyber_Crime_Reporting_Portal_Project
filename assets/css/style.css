@@ -3896,7 +3896,10 @@ Page Title Area Style
 .terms-conditions-content .title:last-child {
   margin-bottom: 0;
 }
-
+.error{
+  font-weight: bolder;
+  color: red;
+}
 .error-area {
   background-color: #e9fcff;
 }
