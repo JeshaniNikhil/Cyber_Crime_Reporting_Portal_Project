@@ -167,62 +167,7 @@
 
     <!-- Main Sidebar Container -->
    <?php  include "sidebar.php"; ?>
-    <div class="modal fade" id="userDataModal" tabindex="-1" aria-labelledby="userAddEditModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="userModalLabel">Add New User</h1>
-            <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"> <span
-                aria-hidden="true">&times;</span></button>
-          </div>
-          <form name="userDataFrm" id="userDataFrm">
-            <div class="modal-body">
-              <div class="frm-status"></div>
-              <div class="mb-3">
-                <label for="userFirstName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter Name">
-              </div>
-              <div class="mb-3">
-                <label for="userEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email">
-              </div>
-              <div class="mb-3">
-                <label for="requirements" class="form-label">Requirements Details</label>
-                <input type="text" class="form-control" id="requirements" placeholder="Requirements">
-              </div>
-              <div class="mb-3">
-                <label for="domain" class="form-label">Domain Name Of Website (If Website Is Hosted)</label>
-                <input type="url" class="form-control" id="domain" placeholder="Domain Name">
-              </div>
-              <div class="mb-3">
-                <label for="testing_type" class="form-label">Type of Testing Required</label><br>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="functionalTesting" value="Functional Testing">
-                  <label class="form-check-label" for="functionalTesting">Functional Testing</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="usabilityTesting" value="Usability Testing">
-                  <label class="form-check-label" for="usabilityTesting">Usability Testing</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="performanceTesting" value="Performance Testing">
-                  <label class="form-check-label" for="performanceTesting">Performance Testing</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="securityTesting" value="Security Testing">
-                  <label class="form-check-label" for="securityTesting">Security Testing</label>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <input type="hidden" id="userID" value="0">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="submitUserData()">Submit</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    
     <div class="modal fade" id="updateuserstatus" tabindex="-1" aria-labelledby="updatestatusLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -235,7 +180,7 @@
             <div class="modal-body">
               <div class="frm-status"></div>
               <div class="mb-3">
-                <label for="domain" class="form-label">Status Names</label>
+                <label for="devices" class="form-label">Status Names</label>
                 <select name="status" id="status" class="form-control">
                   <option disabled selected>Select Status</option>
                   <option value="Pending">Pending</option>
@@ -264,12 +209,7 @@
           <div class="row mb-2">
             <div class="col-sm-6">
               <div class="row">
-                <h1>Web Testing Requests Detail</h1>
-                <a href="javascript:void(0);" class="p-1" onclick="addData()"><svg xmlns="http://www.w3.org/2000/svg"
-                    width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                    <path
-                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
-                  </svg></a>
+                <h1>Social Media Fraud Reports</h1>
               </div>
             </div>
             <div class="col-sm-6">
@@ -287,7 +227,7 @@
         <!-- Default box -->
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Web Testing Requests</h3>
+            <h3 class="card-title">Social Media Fraud Reports</h3>
           </div>
           <div class="card-body">
             <div class="top-panel">
@@ -296,19 +236,23 @@
 
             <!-- Data list table -->
             <table id="dataList" class="display table-responsive" style="width:100%">
-              <thead>
-                <tr>
-                  <th>request id</th>
-                  <th>name</th>
-                  <th>email</th>
-                  <th>domain</th>
-                  <th>requirements</th>
-                  <th>testing_type</th>
-                  <th>status</th>
-                  <th>Update status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
+            <thead>
+    <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Incident Date</th>
+        <th>Incident Time</th>
+        <th>Social Media Platform</th>
+        <th>Description</th>
+        <th>Victim Name</th>
+        <th>Status</th>
+        <th>Update Status</th>
+        <th>Action</th> <!-- Optional for edit/delete buttons -->
+    </tr>
+</thead>
+
             </table>
           </div>
           <!-- /.card-body -->
@@ -350,9 +294,9 @@
     var table = $('#dataList').DataTable({
       "processing": true,
       "serverSide": true,
-      "ajax": "fetchData.php",
+      "ajax": "fetchSocialMediaFruad.php",
       "columnDefs": [
-        { "orderable": false, "targets": 6 }
+        { "orderable": false, "targets": 11 }
       ]
     });
     $(document).ready(function () {
@@ -363,7 +307,7 @@
           type: "POST",
           contentType: false,
           dataType: "json",
-          url: "updatestatus.php",
+          url: "update_social_media_status_reports.php",
           data: new FormData(this),
           processData: false,
           cache: false,
@@ -389,80 +333,11 @@
         })
       })
     });
-    function addData() {
-      $('.frm-status').html('');
-      $('#userModalLabel').html('Create New Web Testing Request');
-      $('#name').val('');
-      $('#email').val('');
-      $('#domain').val('');
-      $('#requirements').val('');
-      $('#userID').val(0);
-      $('#userDataModal').modal('show');
-    }
     function updatestatus(user_data) {
       console.log(user_data);
       $('#updateuserstatus').modal('show');
-      $('#updateID').val(user_data.request_id);
+      $('#updateID').val(user_data.id);
     }
-    function editData(user_data) {
-      $('.frm-status').html('');
-      $('#userModalLabel').html('Edit User #' + user_data.request_id);
-      $('#name').val(user_data.name);
-      $('#email').val(user_data.email);
-      $('#domain').val(user_data.domain);
-      $('#requirements').val(user_data.requirements);
-      $("input[type='checkbox']").prop('checked', false);
-      if (user_data.testing_type) {
-
-        var testingTypesArray = Array.isArray(user_data.testing_type) ? user_data.testing_type : user_data.testing_type.split(',');
-
-        testingTypesArray.forEach(function (type) {
-          $("input[type='checkbox'][value='" + type.trim() + "']").prop('checked', true);
-        });
-      }
-      $('#userID').val(user_data.request_id);
-      $('#userDataModal').modal('show');
-    }
-
-    function submitUserData() {
-      $('.frm-status').html('');
-      let input_data_arr = [
-        document.getElementById('name').value,
-        document.getElementById('email').value,
-        document.getElementById('domain').value,
-        document.getElementById('requirements').value,
-        document.getElementById('userID').value,
-      ];
-      let testingTypes = [];
-      $("input[type='checkbox']:checked").each(function () {
-        testingTypes.push($(this).val());
-      });
-      input_data_arr.push(testingTypes);
-
-      fetch("eventHandler.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ request_type: 'addEditUser', user_data: input_data_arr }),
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data.status == 1) {
-            Swal.fire({
-              title: data.msg,
-              icon: 'success',
-            }).then((result) => {
-
-              table.draw();
-              $('#userDataModal').modal('hide');
-              $("#userDataFrm")[0].reset();
-            });
-          } else {
-            $('.frm-status').html('<div class="alert alert-danger" role="alert">' + data.error + '</div>');
-          }
-        })
-        .catch(console.error);
-    }
-
     function deleteData(user_id) {
       Swal.fire({
         title: 'Are you sure to Delete?',
@@ -475,7 +350,7 @@
       }).then((result) => {
         if (result.isConfirmed) {
           // Delete event
-          fetch("eventHandler.php", {
+          fetch("eventSocial.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ request_type: 'deleteUser', user_id: user_id }),
@@ -501,5 +376,4 @@
     }
   </script>
 </body>
-
 </html>

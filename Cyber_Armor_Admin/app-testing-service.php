@@ -195,22 +195,94 @@
                 <input type="text" class="form-control" id="app_name" placeholder="App Name">
               </div>
               <div class="mb-3">
-                <label for="testing_type" class="form-label">Type of Testing Required</label><br>
+                <label for="testing_type" class="form-label"
+                  >Type of Testing Required</label
+                ><br />
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="functionalTesting" value="Functional Testing">
-                  <label class="form-check-label" for="functionalTesting">Functional Testing</label>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="functionalTesting"
+                    value="Functional Testing"
+                  />
+                  <label class="form-check-label" for="functionalTesting"
+                    >Automated Testing</label
+                  >
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="usabilityTesting" value="Usability Testing">
-                  <label class="form-check-label" for="usabilityTesting">Usability Testing</label>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="usabilityTesting"
+                    value="Usability Testing"
+                  />
+                  <label class="form-check-label" for="usabilityTesting"
+                    >Usability Testing</label
+                  >
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="performanceTesting" value="Performance Testing">
-                  <label class="form-check-label" for="performanceTesting">Performance Testing</label>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="performanceTesting"
+                    value="Performance Testing"
+                  />
+                  <label class="form-check-label" for="performanceTesting"
+                    >Performance Testing</label
+                  >
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="securityTesting" value="Security Testing">
-                  <label class="form-check-label" for="securityTesting">Security Testing</label>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="securityTesting"
+                    value="Security Testing"
+                  />
+                  <label class="form-check-label" for="securityTesting"
+                    >Security Testing</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="securityTesting"
+                    value="Security Testing"
+                  />
+                  <label class="form-check-label" for="securityTesting"
+                    >Compatibility Testing</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="compactibility_testing"
+                    value="Compatibility Testing"
+                  />
+                </div>
+                
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="manual_testing"
+                    value="Manual Testing"
+                  />
+                  <label class="form-check-label" for="securityTesting"
+                    >Manual Testing</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="other_type_of_testing"
+                    value="Other Type Of Testing"
+                  />
+                  <label class="form-check-label" for="securityTesting"
+                    >Other Type Of Testing</label
+                  >
                 </div>
               </div>
             </div>
@@ -438,7 +510,6 @@
         testingTypes.push($(this).val());
       });
       input_data_arr.push(testingTypes);
-
       fetch("eventAppHandler.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -9,7 +9,7 @@ if($conn->connect_error){
     die("Failed to connect with MySQL: " . $conn->connect_error);  
 } 
  // Retrieve JSON from POST body 
-$jsonStr = file_get_contents('php://input'); 
+$jsonStr = file_get_contents(filename: 'php://input'); 
 $jsonObj = json_decode($jsonStr); 
  
 if($jsonObj->request_type == 'addEditUser'){ 

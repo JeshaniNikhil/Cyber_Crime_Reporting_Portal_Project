@@ -1,3 +1,50 @@
+<?php
+// Include the database connection from config.php
+require_once './db/config.php';
+
+session_start();
+
+// Ensure the user is logged in and has a user_id
+if (!isset($_SESSION['user_id'])) {
+    echo "Error: User is not logged in.";
+    exit;
+}
+
+// Get the logged-in user's user_id from the session
+$user_id = $_SESSION['user_id'];
+
+// Query to fetch common fields from all tables where user_id matches
+$sql = "
+SELECT 'Financial Fraud' AS report_type, full_name, email, phone_number, incident_date, incident_time, description
+FROM fraud_reports
+WHERE user_id = :user_id
+
+UNION
+
+SELECT 'Ransomware' AS report_type, full_name, email, phone_number, incident_date, incident_time, description
+FROM ransomware_reports
+WHERE user_id = :user_id
+
+UNION
+
+SELECT 'Social Media Fraud' AS report_type, full_name, email, phone_number, incident_date, incident_time, description
+FROM social_media_fraud_report
+WHERE user_id = :user_id
+
+UNION
+
+SELECT 'Other Fraud' AS report_type, full_name, email, phone_number, incident_date, incident_time, description
+FROM other_reports
+WHERE user_id = :user_id
+";
+
+// Prepare and execute the query with user_id
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+$stmt->execute();
+$reports = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -116,7 +163,7 @@
 									</ul>
 								</li>
 								<li class="nav-item">
-									<a href="#" class="nav-link dropdown-toggle">
+									<a href="#" class="nav-link dropdown-toggle active">
 										Pages 
 									</a>
 
@@ -211,60 +258,54 @@
         <div class="page-title-area">
             <div class="container">
                 <div class="page-title-content text-center">
-                    <h1>About Us</h1>
+                    <h1>Track Your Reports</h1>
                     <ul class="list-unstyled ps-0 mb-0">
                         <li class="d-inline-block">
                             <a class="text-decoration-none" href="index.php">Home</a>
                         </li>
-                        <li class="d-inline-block">About</li>
+                        <li class="d-inline-block">Pages</li>
+                        <li class="d-inline-block">Track Your Reports</li>
                     </ul>
                 </div>
             </div>
         </div>
         <!-- End Page Title Area -->
-
-        <!-- Start About Area -->
-        <div class="about-area pt-100 pb-75">
-            <div class="container">
-                <div class="row align-items-center" data-cue="slideInUp">
-                    <div class="col-lg-6">
-                        <div class="about-image">
-                            <img src="assets/images/about/about-7.png" alt="about-image">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="about-content about-style">
-                            <div class="title">
-                                <span class="d-block">About</span>
-                                <h2>Welcome to Cyber Armor</h2>
-                                <p>Cyber Armor is a leading cybersecurity firm dedicated to safeguarding digital landscapes for businesses and individuals alike. With a team of seasoned experts, we specialize in providing comprehensive security solutions that address the ever-evolving threats in the cyber world. Our services range from advanced web and mobile application security testing to in-depth network penetration testing and meticulous cyber forensics. At Cyber Armor, we are committed to empowering our clients with the knowledge and tools necessary to protect their digital assets and maintain their operational integrity. Our mission is to build a secure digital future where cyber threats are anticipated, mitigated, and neutralized, ensuring peace of mind and continuity for all our clients.</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-6">
-                                    <div class="about-item">
-                                        <div class="point">
-                                            4.7+
-                                        </div>
-                                        <h3>Review Customer</h3>
-                                        <p>Organizations are now forced to implement comprehensive cyber security strategies,</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-6">
-                                    <div class="about-item">
-                                        <div class="point">
-                                            4K+
-                                        </div>
-                                        <h3>Project Completed</h3>
-                                        <p>Organizations are now forced to implement comprehensive cyber security strategies,</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="demo text-decoration-none" href="contact.html">Request A Quote</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="container">
+        <h2 class="mt-5">Fraud Reports</h2>
+        <table class="table table-bordered table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Report Type</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Incident Date</th>
+                    <th>Incident Time</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (count($reports) > 0): ?>
+                    <?php foreach ($reports as $report): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($report['report_type']); ?></td>
+                            <td><?php echo htmlspecialchars($report['full_name']); ?></td>
+                            <td><?php echo htmlspecialchars($report['email']); ?></td>
+                            <td><?php echo htmlspecialchars($report['phone_number']); ?></td>
+                            <td><?php echo htmlspecialchars($report['incident_date']); ?></td>
+                            <td><?php echo htmlspecialchars($report['incident_time']); ?></td>
+                            <td><?php echo htmlspecialchars($report['description']); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="7">No reports found for this user.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+        
         <!-- End About Area -->
 
 		<!-- Start Services Area -->

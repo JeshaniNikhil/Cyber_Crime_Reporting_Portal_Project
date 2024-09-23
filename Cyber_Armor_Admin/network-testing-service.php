@@ -194,25 +194,25 @@
                 <label for="network_scope" class="form-label">Network Scope</label>
                 <input type="text" class="form-control" id="network_scope" placeholder="Domain Name">
               </div>
-              <div class="mb-3">
-                <label for="testing_type" class="form-label">Type of Testing Required</label><br>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="functionalTesting" value="Functional Testing">
-                  <label class="form-check-label" for="functionalTesting">Functional Testing</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="usabilityTesting" value="Usability Testing">
-                  <label class="form-check-label" for="usabilityTesting">Usability Testing</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="performanceTesting" value="Performance Testing">
-                  <label class="form-check-label" for="performanceTesting">Performance Testing</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="securityTesting" value="Security Testing">
-                  <label class="form-check-label" for="securityTesting">Security Testing</label>
-                </div>
-              </div>
+            	<div class="mb-3">
+								<label for="testing_type" class="form-label">Type of Testing Required</label><br>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="PCI DSS" value="PCI DSS">
+									<label class="form-check-label" for="PCI DSS">PCI DSS</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="HIPAA" value="HIPAA">
+									<label class="form-check-label" for="HIPAA">HIPAA</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="GDPR" value="GDPR">
+									<label class="form-check-label" for="GDPR">GDPR</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="Other" value="Other">
+									<label class="form-check-label" for="Other">Other</label>
+								</div>
+							</div>
             </div>
             <div class="modal-footer">
               <input type="hidden" id="userID" value="0">
@@ -391,7 +391,7 @@
     });
     function addData() {
       $('.frm-status').html('');
-      $('#userModalLabel').html('Add New User');
+      $('#userModalLabel').html('Network Penetration Testing Request');
       $('#name').val('');
       $('#email').val('');
       $('#network_scope').val('');

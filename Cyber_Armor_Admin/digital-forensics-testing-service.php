@@ -195,24 +195,28 @@
                 <input type="url" class="form-control" id="devices" placeholder="devices Name">
               </div>
               <div class="mb-3">
-                <label for="testing_type" class="form-label">Type of Testing Required</label><br>
+								<label for="testing_type" class="form-label">Type of Testing Required</label><br>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="Memory Card Contents" value="Memory Card Contents">
+									<label class="form-check-label" for="Memory Card Contents">Memory Card Contents</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="Mobile Device Examination" value="Mobile Device Examination">
+									<label class="form-check-label" for="Mobile Device Examination">Mobile Device Examination</label>
+								</div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="functionalTesting" value="Functional Testing">
-                  <label class="form-check-label" for="functionalTesting">Functional Testing</label>
-                </div>
+									<input class="form-check-input" type="checkbox" id="Social Media Investigation" value="Social Media Investigation">
+									<label class="form-check-label" for="Social Media Investigation">Social Media Investigation</label>
+								</div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="usabilityTesting" value="Usability Testing">
-                  <label class="form-check-label" for="usabilityTesting">Usability Testing</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="performanceTesting" value="Performance Testing">
-                  <label class="form-check-label" for="performanceTesting">Performance Testing</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="securityTesting" value="Security Testing">
-                  <label class="form-check-label" for="securityTesting">Security Testing</label>
-                </div>
-              </div>
+									<input class="form-check-input" type="checkbox" id="Browser History Examination" value="Browser History Examination">
+									<label class="form-check-label" for="Browser History Examination">Browser History Examination</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="Other" value="Other">
+									<label class="form-check-label" for="Other">Other</label>
+								</div>
+							</div>
             </div>
             <div class="modal-footer">
               <input type="hidden" id="userID" value="0">
@@ -391,7 +395,7 @@
     });
     function addData() {
       $('.frm-status').html('');
-      $('#userModalLabel').html('Add New User');
+      $('#userModalLabel').html('');
       $('#name').val('');
       $('#email').val('');
       $('#devices').val('');

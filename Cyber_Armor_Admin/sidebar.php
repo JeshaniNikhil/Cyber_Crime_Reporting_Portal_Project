@@ -33,37 +33,25 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../../index.php" class="nav-link">
+                  <a href="financial_fraud.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>FINANCIAL FRAUD</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../../index2.html" class="nav-link">
+                  <a href="social_media_fraud.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>SOCIAL MEDIA FRAUD</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../../index3.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>EMAIL FRAUD</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../../index3.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>CALL FRAUD</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../../index3.html" class="nav-link">
+                  <a href="ransomeware_reports.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>RANSOMWARE ATTACKS</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../../index3.html" class="nav-link">
+                  <a href="other_fraud.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>OTHER FRAUD</p>
                   </a>
@@ -119,14 +107,6 @@
                 <i class="fas fa-address-book"></i>&nbsp;
                 <p>
                   Contact Management
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fas fa-file-alt"></i>&nbsp;
-                <p>
-                  Audit Logs
                 </p>
               </a>
             </li>
