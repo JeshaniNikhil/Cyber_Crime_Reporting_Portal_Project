@@ -15,25 +15,25 @@ $user_id = $_SESSION['user_id'];
 
 // Query to fetch common fields from all tables where user_id matches
 $sql = "
-SELECT 'Financial Fraud' AS report_type, full_name, email, phone_number, incident_date, incident_time, description
+SELECT 'Financial Fraud' AS report_type, full_name, email, phone_number, incident_date, incident_time, description,status
 FROM fraud_reports
 WHERE user_id = :user_id
 
 UNION
 
-SELECT 'Ransomware' AS report_type, full_name, email, phone_number, incident_date, incident_time, description
+SELECT 'Ransomware' AS report_type, full_name, email, phone_number, incident_date, incident_time, description,status
 FROM ransomware_reports
 WHERE user_id = :user_id
 
 UNION
 
-SELECT 'Social Media Fraud' AS report_type, full_name, email, phone_number, incident_date, incident_time, description
+SELECT 'Social Media Fraud' AS report_type, full_name, email, phone_number, incident_date, incident_time, description,status
 FROM social_media_fraud_report
 WHERE user_id = :user_id
 
 UNION
 
-SELECT 'Other Fraud' AS report_type, full_name, email, phone_number, incident_date, incident_time, description
+SELECT 'Other Fraud' AS report_type, full_name, email, phone_number, incident_date, incident_time, description,status
 FROM other_reports
 WHERE user_id = :user_id
 ";
@@ -282,6 +282,7 @@ $reports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>Incident Date</th>
                     <th>Incident Time</th>
                     <th>Description</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -295,6 +296,7 @@ $reports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($report['incident_date']); ?></td>
                             <td><?php echo htmlspecialchars($report['incident_time']); ?></td>
                             <td><?php echo htmlspecialchars($report['description']); ?></td>
+                            <td><?php echo htmlspecialchars($report['status']); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
