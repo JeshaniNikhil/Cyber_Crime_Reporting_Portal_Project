@@ -1,7 +1,6 @@
 <?php
 // Include the database connection from config.php
 require_once './db/config.php';
-print_r($_POST);
 // Echo necessary scripts for jQuery and SweetAlert
 echo '<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>';
 echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
@@ -68,7 +67,7 @@ function insertFraudReport($postData) {
     // Execute the statement
     if ($stmt->execute()) {
         // Redirect to another page on success
-        header("Location: success_page.php");
+        header("Location: Track-Reports.php");
         exit(); // Make sure to stop script execution after redirection
     } else {
         echo '<script type="text/javascript">

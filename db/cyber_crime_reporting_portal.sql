@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 23, 2024 at 06:56 PM
+-- Generation Time: Sep 29, 2024 at 05:39 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -94,7 +94,9 @@ CREATE TABLE `contact_request` (
 --
 
 INSERT INTO `contact_request` (`request_id`, `name`, `email`, `phone`, `subject`, `comments`, `created_at`, `updated_at`) VALUES
-(1, 'Hello', 'testing@gmail.com', '1234567890', 'asdfghjkl;zxcvbnmqwertyuiop', 'qwertyuiopasdfghjklzxcvbnm', '2024-08-24 19:39:10', '2024-08-24 19:39:10');
+(1, 'Hello', 'testing@gmail.com', '1234567890', 'asdfghjkl;zxcvbnmqwertyuiop', 'qwertyuiopasdfghjklzxcvbnm', '2024-08-24 19:39:10', '2024-08-24 19:39:10'),
+(2, 'Karly Mcdonald', 'dynurifa@mailinator.com', '8530005328', 'Ipsa dolores modi s', 'Hic animi ullam des', '2024-09-29 05:38:07', '2024-09-29 05:38:07'),
+(3, 'Sylvia Figueroa', 'leta@mailinator.com', '2243213222', 'Necessitatibus sed c', 'Ea molestiae aut iur', '2024-09-29 05:38:32', '2024-09-29 05:38:32');
 
 -- --------------------------------------------------------
 
@@ -119,7 +121,10 @@ CREATE TABLE `digital_forensics_request` (
 --
 
 INSERT INTO `digital_forensics_request` (`request_id`, `name`, `email`, `devices`, `requirements`, `testing_type`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'sdfsdf', 'a@gmail.com', 'dgd hd dfgfh', 'dsfhsdfsdfds sdfs gsdf gsdfugfhddslgfsghslghfdul f fdsughfdsg', 'Mobile Device Examination, Social Media Investigation', 'Pending', '2024-08-19 09:50:52', '2024-08-25 14:09:38');
+(1, 'sdfsdf', 'a@gmail.com', 'dgd hd dfgfh', 'dsfhsdfsdfds sdfs gsdf gsdfugfhddslgfsghslghfdul f fdsughfdsg', 'Mobile Device Examination, Social Media Investigation', 'Pending', '2024-08-19 09:50:52', '2024-08-25 14:09:38'),
+(2, 'Kaye Evans', 'caboqoxoza@mailinator.com', 'https://www.xadeziwimiguby.me', 'Autem est voluptate ', '[\"Memory Card Contents\",\"Social Media Investigation\",\"Other\"]', 'Request Submitted', '2024-09-29 05:31:45', '2024-09-29 05:31:45'),
+(3, 'Yardley Glenn', 'cenawe@mailinator.com', 'https://www.gyqumagozuxi.us', 'Odit totam repellend', '[\"Memory Card Contents\",\"Mobile Device Examination\",\"Social Media Investigation\",\"Browser History Examination\",\"Other\"]', 'Request Submitted', '2024-09-29 05:31:51', '2024-09-29 05:31:51'),
+(4, 'Iliana Weiss', 'gakofutof@mailinator.com', 'https://www.vamyxyninu.me', 'Nobis voluptatem De', '[\"Memory Card Contents\",\"Mobile Device Examination\",\"Social Media Investigation\",\"Browser History Examination\"]', 'Request Submitted', '2024-09-29 05:31:56', '2024-09-29 05:31:56');
 
 -- --------------------------------------------------------
 
@@ -147,7 +152,11 @@ CREATE TABLE `fraud_reports` (
 --
 
 INSERT INTO `fraud_reports` (`id`, `full_name`, `email`, `phone_number`, `incident_date`, `incident_time`, `fraud_type`, `description`, `amount_lost`, `victim_name`, `status`, `user_id`) VALUES
-(1, 'test', 'test@gmail.com', '1234567890', '20005-02-05', '14:55', 'Ransomware', 'sufgyusdgfyusdfgu', '5000.00', 'sdufgsdug', 'Pending', 1);
+(1, 'test', 'test@gmail.com', '1234567890', '20005-02-05', '14:55', 'Ransomware', 'sufgyusdgfyusdfgu', '5000.00', 'sdufgsdug', 'Pending', 1),
+(3, 'Kai Hudson', 'kizymadozo@mailinator.com', '+1 (866) 738-2213', '1996-01-02', '20:20', 'Credit Card Fraud', 'Ut voluptas eveniet', '5000.00', 'Wyoming Jennings', 'Request Submitted', 1),
+(4, 'Kai Hudson', 'kizymadozo@mailinator.com', '+1 (866) 738-2213', '1996-01-02', '20:20', 'Credit Card Fraud', 'Ut voluptas eveniet', '5000.00', 'Wyoming Jennings', 'Request Submitted', 1),
+(5, 'Kai Hudson', 'kizymadozo@mailinator.com', '+1 (866) 738-2213', '1996-01-02', '20:20', 'Credit Card Fraud', 'Ut voluptas eveniet', '5000.00', 'Wyoming Jennings', 'Request Submitted', 1),
+(6, 'Kylie Acevedo', 'wyjiziny@mailinator.com', '+1 (886) 643-8734', '2019-01-07', '06:52', 'Credit Card Fraud', 'Earum enim sit est', '60000.00', 'Cecilia Olson', 'Request Submitted', 1);
 
 -- --------------------------------------------------------
 
@@ -173,7 +182,10 @@ CREATE TABLE `network_request` (
 
 INSERT INTO `network_request` (`request_id`, `name`, `email`, `network_scope`, `requirements`, `testing_type`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'sdbjhf', 'jhsjdf@gmail.com', 'sdkfksd fs fsd fdsfdsfgfd', 'd sjfsd fgsdghfsd jf', 'PCI DSS, GDPR', 'Pending', '2024-08-18 19:40:11', '2024-08-25 13:40:01'),
-(2, 'testings', 'testing@gmail.com', 'sdfsdfhasduifhd', 'hdfighdfuigdfuigdui', 'PCI DSS, GDPR', 'Request Submitted', '2024-09-22 16:31:03', '2024-09-22 16:31:03');
+(2, 'testings', 'testing@gmail.com', 'sdfsdfhasduifhd', 'hdfighdfuigdfuigdui', 'PCI DSS, GDPR', 'Request Submitted', '2024-09-22 16:31:03', '2024-09-22 16:31:03'),
+(3, 'Basia Merrill', 'luvyt@mailinator.com', 'Vivien Cherry', 'Aute dolore et fugia', '[\"HIPAA\",\"GDPR\",\"Other\"]', 'Request Submitted', '2024-09-29 05:31:14', '2024-09-29 05:31:14'),
+(4, 'Diana Ortega', 'tohifyfavy@mailinator.com', 'Kendall Rivera', 'Debitis ut lorem inc', '[\"PCI DSS\",\"GDPR\"]', 'Request Submitted', '2024-09-29 05:31:20', '2024-09-29 05:31:20'),
+(5, 'Rhonda Weaver', 'kylewuna@mailinator.com', 'Harrison Bullock', 'Vitae quis modi moll', '[\"PCI DSS\",\"GDPR\"]', 'Request Submitted', '2024-09-29 05:31:26', '2024-09-29 05:31:26');
 
 -- --------------------------------------------------------
 
@@ -195,6 +207,17 @@ CREATE TABLE `other_reports` (
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `other_reports`
+--
+
+INSERT INTO `other_reports` (`id`, `full_name`, `email`, `phone_number`, `incident_date`, `incident_time`, `type_of_fraud`, `description`, `status`, `user_id`, `create_time`) VALUES
+(2, 'Miranda Griffith', 'tyjugoje@mailinator.com', '+1959-1498', '2023-04-10', '10:26:00', 'Molestiae architecto', 'Molestias elit arch', 'Request Submitted', 1, '2024-09-29 05:27:50'),
+(3, 'Nigel Curtis', 'sumibicy@mailinator.com', '+1713819-4788', '2008-08-16', '17:50:00', 'Nostrum veniam dolo', 'Aute in illo enim co', 'Request Submitted', 1, '2024-09-29 05:28:18'),
+(4, 'Calvin Henson', 'vijyz@mailinator.com', '+1621947-8126', '2017-12-16', '15:56:00', 'Dolor tenetur alias ', 'Accusantium id vel i', 'Request Submitted', 1, '2024-09-29 05:28:34'),
+(5, 'Warren Moon', 'bokeroje@mailinator.com', '+1243194-1304', '1981-09-24', '21:22:00', 'Sint sed esse aut i', 'Nihil et reprehender', 'Request Submitted', 1, '2024-09-29 05:28:51'),
+(6, 'Rae Rivas', 'sipyb@mailinator.com', '+1637466-5019', '2008-05-27', '08:57:00', 'Nulla eaque id adipi', 'Qui omnis sit velit ', 'Request Submitted', 1, '2024-09-29 05:29:04');
+
 -- --------------------------------------------------------
 
 --
@@ -214,6 +237,16 @@ CREATE TABLE `ransomware_reports` (
   `user_id` int NOT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `ransomware_reports`
+--
+
+INSERT INTO `ransomware_reports` (`id`, `full_name`, `email`, `phone_number`, `incident_date`, `incident_time`, `ransom_amount`, `description`, `status`, `user_id`, `create_time`) VALUES
+(2, 'Rana Ruiz', 'wupureti@mailinator.com', '+1 (814) 224-2509', '1970-06-19', '08:15:00', '61000.00', 'Dolores doloremque q', 'Request Submitted', 1, '2024-09-29 05:26:38'),
+(3, 'Sylvia Mcdowell', 'duvyqu@mailinator.com', '+1 (172) 163-6555', '2012-01-25', '20:15:00', '26.00', 'Non amet doloremque', 'Request Submitted', 1, '2024-09-29 05:26:47'),
+(4, 'Elton Pennington', 'lacejarab@mailinator.com', '+1 (656) 472-4033', '1991-08-03', '19:30:00', '51000.00', 'Illo quas quis in no', 'Request Submitted', 1, '2024-09-29 05:27:07'),
+(5, 'Edan Cooke', 'mupinyvol@mailinator.com', '+1 (832) 286-1477', '1980-01-31', '11:59:00', '66000.00', 'Aliqua Possimus eu', 'Request Submitted', 1, '2024-09-29 05:27:29');
 
 -- --------------------------------------------------------
 
@@ -235,6 +268,17 @@ CREATE TABLE `social_media_fraud_report` (
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `social_media_fraud_report`
+--
+
+INSERT INTO `social_media_fraud_report` (`id`, `full_name`, `email`, `phone_number`, `incident_date`, `incident_time`, `social_media_platform`, `description`, `victim_name`, `status`, `create_time`, `user_id`) VALUES
+(2, 'Chelsea Briggs', 'zijes@mailinator.com', '+1 (581) 611-7516', '1999-07-17', '22:03', 'Facebook', 'Eius qui excepturi i', 'Galvin Moses', 'Request Submitted', '2024-09-29 05:25:42', 1),
+(3, 'Amela English', 'xuvymebi@mailinator.com', '+1 (736) 993-5802', '1976-11-20', '22:28', 'Other', 'Molestias et optio ', 'Berk Meyer', 'Request Submitted', '2024-09-29 05:25:51', 1),
+(4, 'Unity Glass', 'pynyvuk@mailinator.com', '+1 (234) 325-4687', '1981-05-18', '18:43', 'Other', 'Illo praesentium vol', 'Blaine Mcclain', 'Request Submitted', '2024-09-29 05:26:01', 1),
+(5, 'Nora Kane', 'lysoqu@mailinator.com', '+1 (936) 126-1043', '1984-07-27', '18:50', 'WhatsApp', 'Sint deleniti sed f', 'Evan Delaney', 'Request Submitted', '2024-09-29 05:26:08', 1),
+(6, 'Devin Oneil', 'liqori@mailinator.com', '+1 (136) 766-6549', '1971-01-05', '00:20', 'WhatsApp', 'Quia facere in nesci', 'Halla Mayo', 'Request Submitted', '2024-09-29 05:26:16', 1);
 
 -- --------------------------------------------------------
 
@@ -283,7 +327,11 @@ CREATE TABLE `web_request` (
 
 INSERT INTO `web_request` (`request_id`, `name`, `email`, `domain`, `requirements`, `testing_type`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'sdjfosdhfsdh', 'A@GMAIL.COM', 'http://localhost/htdocs/Cyber_Crime_Reporting_Portal_Project/Cyber_Armor_Admin/web-testing-service.php', 'admin@gmail.com', '[\"Functional Testing\",\"Security Testing\"]', 'Pending', '2024-08-17 17:26:41', '2024-09-22 15:34:22'),
-(3, 'testing', 'testing@gmail.com', 'http://localhost/Cyber_Crime_Reporting_Portal_Project/Cyber_Armor_Admin/web-testing-service.php', 'abcdefgd', '[\"Functional Testing\",\"Security Testing\"]', 'Request Submitted', '2024-09-22 15:37:58', '2024-09-22 15:37:58');
+(3, 'testing', 'testing@gmail.com', 'http://localhost/Cyber_Crime_Reporting_Portal_Project/Cyber_Armor_Admin/web-testing-service.php', 'abcdefgd', '[\"Functional Testing\",\"Security Testing\"]', 'Request Submitted', '2024-09-22 15:37:58', '2024-09-22 15:37:58'),
+(4, 'Kyla Valentine', 'gehewiwuxy@mailinator.com', 'https://www.kosyfogalisux.com.au', 'Quos voluptatem reru', '[\"Functional Testing\"]', 'Request Submitted', '2024-09-29 05:30:34', '2024-09-29 05:30:34'),
+(5, 'Jasmine Pace', 'nahetyvi@mailinator.com', 'https://www.vuwobydylus.info', 'Nulla accusantium ma', '[\"Performance Testing\"]', 'Request Submitted', '2024-09-29 05:30:46', '2024-09-29 05:30:46'),
+(6, 'Driscoll Whitfield', 'dydupuduc@mailinator.com', 'https://www.hyqovalilijeq.co', 'Iusto quod quod saep', '[\"Usability Testing\",\"Security Testing\"]', 'Request Submitted', '2024-09-29 05:30:53', '2024-09-29 05:30:53'),
+(7, 'Jada Valenzuela', 'vemu@mailinator.com', 'Pa$$w0rd!', '', '[]', 'Request Submitted', '2024-09-29 05:35:51', '2024-09-29 05:35:51');
 
 --
 -- Indexes for dumped tables
@@ -379,43 +427,43 @@ ALTER TABLE `app_request`
 -- AUTO_INCREMENT for table `contact_request`
 --
 ALTER TABLE `contact_request`
-  MODIFY `request_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `request_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `digital_forensics_request`
 --
 ALTER TABLE `digital_forensics_request`
-  MODIFY `request_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `request_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `fraud_reports`
 --
 ALTER TABLE `fraud_reports`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `network_request`
 --
 ALTER TABLE `network_request`
-  MODIFY `request_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `request_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `other_reports`
 --
 ALTER TABLE `other_reports`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `ransomware_reports`
 --
 ALTER TABLE `ransomware_reports`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `social_media_fraud_report`
 --
 ALTER TABLE `social_media_fraud_report`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users_details`
@@ -427,7 +475,7 @@ ALTER TABLE `users_details`
 -- AUTO_INCREMENT for table `web_request`
 --
 ALTER TABLE `web_request`
-  MODIFY `request_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `request_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

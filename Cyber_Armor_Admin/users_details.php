@@ -367,9 +367,7 @@
       $('#userModalLabel').html('Add New User');
       $('#name').val('');
       $('#email').val('');
-      $('#domain').val('');
-      $('#requirements').val('');
-      $('#userID').val(0);
+      $('#password').val('');
       $('#userDataModal').modal('show');
     }
     function updatestatus(user_data) {
@@ -382,9 +380,7 @@
       $('#userModalLabel').html('Edit User #' + user_data.request_id);
       $('#name').val(user_data.name);
       $('#email').val(user_data.email);
-      $('#domain').val(user_data.domain);
-      $('#requirements').val(user_data.requirements);
-      $("input[type='checkbox']").prop('checked', false);
+      $('#password').val(user_data.password);
       if (user_data.testing_type) {
 
         var testingTypesArray = Array.isArray(user_data.testing_type) ? user_data.testing_type : user_data.testing_type.split(',');
@@ -402,15 +398,8 @@
       let input_data_arr = [
         document.getElementById('name').value,
         document.getElementById('email').value,
-        document.getElementById('domain').value,
-        document.getElementById('requirements').value,
-        document.getElementById('userID').value,
+        document.getElementById('password').value,
       ];
-      let testingTypes = [];
-      $("input[type='checkbox']:checked").each(function () {
-        testingTypes.push($(this).val());
-      });
-      input_data_arr.push(testingTypes);
 
       fetch("eventHandler.php", {
         method: "POST",
