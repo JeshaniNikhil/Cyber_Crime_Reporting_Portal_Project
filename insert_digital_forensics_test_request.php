@@ -26,9 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Port=587;
             $mail->SMTPAuth=true;
             $mail->SMTPSecure='tls';
-            $mail->Username='nikhiljeshani2@gmail.com';
-            $mail->Password='xpmppmehyvcackoo';
-            $mail->setFrom('nikhiljeshani2@gmail.com', 'Digital Forensics Testing Request');
+            $mail->Username=$email_for_send;
+            $mail->Password=$password;
+            $mail->setFrom($email_for_send, 'Digital Forensics Testing Request');
             $mail->addAddress($adminemail);
 
             $mail->isHTML(true);

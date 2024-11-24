@@ -301,7 +301,7 @@ CREATE TABLE `users_details` (
 
 INSERT INTO `users_details` (`user_id`, `user_name`, `email`, `password_hash`, `created_at`, `updated_at`) VALUES
 (1, 'nikhiljeshani', 'nikhiljeshani9@gmail.com', 'd5148be3a3247ebfb9551be3491d4194ea4e1d98a915151a7f9d654ebc0c4b69', '2024-09-01 17:41:33', '2024-09-01 17:41:33'),
-(2, 'nikhil', 'nikhiljeshani2@gmail.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '2024-09-18 18:22:03', '2024-09-18 18:22:03');
+(2, 'nikhil', $email_for_send, 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '2024-09-18 18:22:03', '2024-09-18 18:22:03');
 
 -- --------------------------------------------------------
 
